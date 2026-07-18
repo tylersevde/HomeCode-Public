@@ -1,0 +1,157 @@
+#version 450
+
+layout(local_size_x = 128) in;
+
+struct Particle {
+    vec4 positionLife;
+    vec4 velocitySeed;
+};
+
+struct ImpactCommand {
+    vec4 positionStrength;
+    uvec4 metadata;
+};
+
+layout(set = 0, binding = 0, std430) buffer ParticleState {
+    Particle particles[];
+};
+
+layout(set = 0, binding = 1, std430) readonly buffer ImpactCommands {
+    ImpactCommand impacts[];
+};
+
+layout(push_constant) uniform SimulationPush {
+    uint count;
+    float deltaTime;
+    float gravity;
+    float friction;
+    float elapsedTime;
+    uint impactCount;
+    uint impactEmissionCount;
+    uint impactFirstParticle;
+    uint impactEndParticle;
+    uint frameSerial;
+} simulation;
+
+uint hash32(uint value) {
+    value ^= value >> 16u;
+    value *= 0x7feb352du;
+    value ^= value >> 15u;
+    value *= 0x846ca68bu;
+    return value ^ (value >> 16u);
+}
+
+float random01(uint value) {
+    return float(hash32(value)) / 4294967295.0;
+}
+
+void main() {
+    uint id = gl_GlobalInvocationID.x;
+    if (id >= simulation.count) {
+        return;
+    }
+
+    Particle state = particles[id];
+    vec3 position = state.positionLife.xyz;
+    float life = state.positionLife.w;
+    vec3 velocity = state.velocitySeed.xyz;
+    uint packedSeed = floatBitsToUint(state.velocitySeed.w);
+    uint seed = packedSeed ^ id;
+
+    // A compact host command list deterministically assigns this frame's
+    // emission prefix. No atomics, readback, or persistent CPU particle writes
+    // are needed, and non-emitted particles continue their existing motion.
+    if (id >= simulation.impactFirstParticle
+        && id < simulation.impactEndParticle) {
+        for (uint commandIndex = 0u;
+             commandIndex < min(simulation.impactCount, 24u);
+             ++commandIndex) {
+            ImpactCommand impact = impacts[commandIndex];
+            uint first = impact.metadata.y;
+            uint emissionCount = impact.metadata.z;
+            if (id < first || id >= first + emissionCount) {
+                continue;
+            }
+            uint familyCode = min(impact.metadata.x, 127u);
+            uint localIndex = id - first;
+            uint impactSeed = hash32(id ^ impact.metadata.w
+                ^ (commandIndex + 1u) * 0x9e3779b9u ^ simulation.frameSerial);
+            vec3 direction = normalize(vec3(
+                random01(impactSeed + 3u) * 2.0 - 1.0,
+                0.28 + random01(impactSeed + 5u) * 1.35,
+                random01(impactSeed + 7u) * 2.0 - 1.0));
+            float familySpeed = 1.0;
+            float familyLife = 1.0;
+            if (familyCode == 1u) { familySpeed = 1.55; familyLife = 0.70; }
+            if (familyCode == 2u) { familySpeed = 1.15; familyLife = 0.82; }
+            if (familyCode == 3u) { familySpeed = 0.88; familyLife = 1.18; }
+            if (familyCode == 4u) { familySpeed = 1.05; familyLife = 1.00; }
+            if (familyCode == 5u) { familySpeed = 0.42; familyLife = 1.55; }
+            if (familyCode == 6u) { familySpeed = 0.48; familyLife = 1.42; }
+            if (familyCode == 7u) { familySpeed = 0.72; familyLife = 1.30; }
+            if (familyCode == 8u) { familySpeed = 0.62; familyLife = 1.50; }
+            float strength = clamp(impact.positionStrength.w, 0.25, 4.0);
+            float spread = 0.008 + random01(impactSeed + 11u) * 0.035;
+            position = impact.positionStrength.xyz + direction * spread;
+            velocity = direction * familySpeed
+                * (0.75 + strength * 1.35)
+                * (0.72 + random01(impactSeed + 13u) * 0.58);
+            life = familyLife
+                * (0.38 + random01(impactSeed + 17u) * 0.92);
+            packedSeed = (hash32(impactSeed ^ localIndex) & 0x00ffffffu)
+                       | ((familyCode & 0x7fu) << 24u) | 0x80000000u;
+            seed = packedSeed ^ id;
+            break;
+        }
+    }
+
+    life -= simulation.deltaTime;
+
+    velocity.y -= simulation.gravity * simulation.deltaTime;
+    velocity *= 1.0 / (1.0 + 0.018 * simulation.deltaTime);
+    position += velocity * simulation.deltaTime;
+
+    float bounce = 0.34 + 0.40 * random01(seed + 17u);
+    if (position.x < 0.035) {
+        position.x = 0.035;
+        velocity.x = abs(velocity.x) * bounce;
+    }
+    if (position.x > 99.965) {
+        position.x = 99.965;
+        velocity.x = -abs(velocity.x) * bounce;
+    }
+    if (position.z < 0.035) {
+        position.z = 0.035;
+        velocity.z = abs(velocity.z) * bounce;
+    }
+    if (position.z > 99.965) {
+        position.z = 99.965;
+        velocity.z = -abs(velocity.z) * bounce;
+    }
+    if (position.y < 0.035) {
+        position.y = 0.035;
+        velocity.y = abs(velocity.y) * bounce;
+        velocity.xz *= clamp(1.0 - simulation.friction * 4.5
+                             * simulation.deltaTime, 0.0, 1.0);
+    }
+    if (position.y > 9.965) {
+        position.y = 9.965;
+        velocity.y = -abs(velocity.y) * bounce;
+    }
+
+    if (life <= 0.0) {
+        uint epoch = uint(floor(simulation.elapsedTime * 0.2));
+        position = vec3(0.5 + random01(seed + epoch * 3u) * 99.0,
+                        2.0 + random01(seed + epoch * 5u) * 7.5,
+                        0.5 + random01(seed + epoch * 7u) * 99.0);
+        velocity = vec3((random01(seed + epoch * 11u) - 0.5) * 3.0,
+                         random01(seed + epoch * 13u) * 2.0,
+                        (random01(seed + epoch * 17u) - 0.5) * 3.0);
+        life = 8.0 + random01(seed + epoch * 19u) * 24.0;
+        packedSeed = hash32(seed ^ epoch ^ id) & 0x00ffffffu;
+    }
+
+    state.positionLife = vec4(position, life);
+    state.velocitySeed = vec4(velocity, uintBitsToFloat(packedSeed));
+    particles[id] = state;
+}

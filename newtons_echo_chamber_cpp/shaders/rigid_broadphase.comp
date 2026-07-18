@@ -1,0 +1,144 @@
+#version 450
+
+layout(local_size_x = 128) in;
+
+struct BroadphaseBody {
+    vec4 centerRadius;
+    ivec4 cellCompact;
+};
+
+layout(set = 0, binding = 0, std430) readonly buffer BroadphaseBodies {
+    BroadphaseBody broadphaseBodies[];
+};
+
+layout(set = 0, binding = 1, std430) readonly buffer BucketHeads {
+    int bucketHeads[];
+};
+
+layout(set = 0, binding = 2, std430) readonly buffer NextBodies {
+    int nextBody[];
+};
+
+layout(set = 0, binding = 3, std430) coherent buffer Counters {
+    uint counters[];
+};
+
+layout(set = 0, binding = 4, std430) writeonly buffer Pairs {
+    uvec2 pairs[];
+};
+
+layout(push_constant) uniform BroadphasePush {
+    uint count;
+    uint bucketMask;
+    uint pairCapacity;
+} broadphase;
+
+const int COMPACT_BIT = 1;
+const int ACTIVE_BIT = 2;
+
+uint hash32(uint value) {
+    value ^= value >> 16u;
+    value *= 0x7feb352du;
+    value ^= value >> 15u;
+    value *= 0x846ca68bu;
+    return value ^ (value >> 16u);
+}
+
+uint hashCell(ivec3 cell) {
+    uint x = hash32(uint(cell.x));
+    uint y = hash32(uint(cell.y));
+    uint z = hash32(uint(cell.z));
+    return hash32(x ^ (y * 0x9e3779b9u) ^ (z * 0x85ebca6bu));
+}
+
+bool sweptSpheresOverlap(vec4 first, vec4 second) {
+    vec3 delta = second.xyz - first.xyz;
+    float radiusSum = first.w + second.w;
+    return dot(delta, delta) <= radiusSum * radiusSum;
+}
+
+bool bodyIsCompact(BroadphaseBody body) {
+    return (body.cellCompact.w & COMPACT_BIT) != 0;
+}
+
+bool bodyIsActive(BroadphaseBody body) {
+    return (body.cellCompact.w & ACTIVE_BIT) != 0;
+}
+
+void appendPair(uint first, uint second) {
+    uint slot = atomicAdd(counters[0], 1u);
+    if (slot < broadphase.pairCapacity) {
+        pairs[slot] = uvec2(min(first, second), max(first, second));
+    } else {
+        atomicAdd(counters[1], 1u);
+    }
+}
+
+void processCompactBody(uint id, BroadphaseBody body) {
+    if (!bodyIsActive(body)) {
+        return;
+    }
+    for (int z = -1; z <= 1; ++z) {
+        for (int y = -1; y <= 1; ++y) {
+            for (int x = -1; x <= 1; ++x) {
+                ivec3 neighborCell = body.cellCompact.xyz + ivec3(x, y, z);
+                uint bucket = hashCell(neighborCell) & broadphase.bucketMask;
+                int candidateIndex = bucketHeads[bucket];
+
+                while (candidateIndex >= 0
+                       && uint(candidateIndex) < broadphase.count) {
+                    uint candidateId = uint(candidateIndex);
+                    BroadphaseBody candidate = broadphaseBodies[candidateId];
+                    bool candidateActive = bodyIsActive(candidate);
+                    bool uniquePair = !candidateActive || candidateId > id;
+                    if (candidateId != id
+                        && uniquePair
+                        && bodyIsCompact(candidate)
+                        && all(equal(candidate.cellCompact.xyz, neighborCell))
+                        && sweptSpheresOverlap(body.centerRadius,
+                                               candidate.centerRadius)) {
+                        appendPair(id, candidateId);
+                    }
+                    candidateIndex = nextBody[candidateId];
+                }
+            }
+        }
+    }
+}
+
+void processLargeBody(uint id, BroadphaseBody body) {
+    bool bodyActive = bodyIsActive(body);
+    for (uint candidateId = 0u;
+         candidateId < broadphase.count;
+         ++candidateId) {
+        if (candidateId == id) {
+            continue;
+        }
+
+        BroadphaseBody candidate = broadphaseBodies[candidateId];
+        bool candidateCompact = bodyIsCompact(candidate);
+        bool candidateActive = bodyIsActive(candidate);
+        bool uniquePair = bodyActive
+            ? (candidateCompact || !candidateActive || id < candidateId)
+            : (candidateCompact && candidateActive);
+        if (uniquePair
+            && sweptSpheresOverlap(body.centerRadius,
+                                   candidate.centerRadius)) {
+            appendPair(id, candidateId);
+        }
+    }
+}
+
+void main() {
+    uint id = gl_GlobalInvocationID.x;
+    if (id >= broadphase.count) {
+        return;
+    }
+
+    BroadphaseBody body = broadphaseBodies[id];
+    if (bodyIsCompact(body)) {
+        processCompactBody(id, body);
+    } else {
+        processLargeBody(id, body);
+    }
+}
