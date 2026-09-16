@@ -16,11 +16,13 @@ They receive deletion and force-push protection. Repository files alone do not
 activate server-side rules; the owner's saved rollout report records verified
 settings, checks, and any remaining account-owner steps.
 
-**Billing verification is pending at preparation time.** Before enabling new
-hosted automation, verify account-wide $0 paid-usage budgets with **Stop usage
-when budget limit is reached** for Actions, Codespaces, Packages, and Git LFS,
-and available metered-AI controls. A notification-only budget does not block
-spending. Keep new automation disabled if a stopping control cannot be verified.
+On 2026-09-16, the account owner confirmed account-wide $0 paid-usage budgets
+with **Stop usage when budget limit is reached** for Actions, Codespaces,
+Packages, and Git LFS. This is owner confirmation; the current connection cannot
+independently inspect personal-account billing settings. Recheck these limits
+before changing billing or adding hosted services, including any metered AI
+product. A notification-only budget does not block spending. Keep new automation
+disabled if the relevant stopping control cannot be verified.
 Review existing subscriptions, usage, and storage separately; a new limit does
 not erase earlier charges. Do not add paid runners, security trials, packages,
 Codespaces, or subscriptions as part of this rollout. See GitHub's
@@ -135,7 +137,8 @@ tokens, full-commit-SHA action pins, and cancellation of superseded runs. Add no
 artifact uploads, caches, or package publishing. Public contributions require
 the configured workflow approval and receive no secrets or write credentials.
 Workflow pull-request approval remains disabled. The legacy private engineering
-pipeline is manual-only until separately repaired; it is not a required check.
+pipeline is disabled in GitHub and manual-only in its workflow file until
+separately repaired; it is not a required check.
 
 Enable Dependabot alerts and security updates where GitHub supports the
 repository's manifests. GitHub Actions updates run weekly, with a grouped update
