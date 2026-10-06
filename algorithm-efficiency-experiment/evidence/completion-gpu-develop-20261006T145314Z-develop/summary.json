@@ -1,0 +1,566 @@
+{
+  "version": "completion-gpu-v1",
+  "track": "gpu",
+  "stage": "develop",
+  "complete": true,
+  "accepted": false,
+  "selected": null,
+  "decision": "no_qualified_candidate",
+  "metrics": [
+    {
+      "cell_id": "stream-n128-d64-b1",
+      "route": "cpu",
+      "mean_ms": {
+        "cpu": 2.0505993331122836,
+        "cpu_duplicate": 1.9839677491593948,
+        "gpu": 60.71834162382099,
+        "stream64": 38.123915370912684
+      },
+      "cpu_mean_ms": 2.017283541135839,
+      "stream64_cpu_speedup": {
+        "estimate": 0.05291386053896661,
+        "interval": [
+          0.049842944756400054,
+          0.05612021648341016
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "old_gpu_speedup": {
+        "estimate": 1.5926575492859036,
+        "interval": [
+          1.5419644522971083,
+          1.6503499102259327
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "routed_slowdown": 1.0
+    },
+    {
+      "cell_id": "stream-n128-d64-b16",
+      "route": "cpu",
+      "mean_ms": {
+        "cpu": 9.671337081575379,
+        "cpu_duplicate": 9.988170665261958,
+        "gpu": 548.1580752093578,
+        "stream64": 168.5250220434682
+      },
+      "cpu_mean_ms": 9.829753873418667,
+      "stream64_cpu_speedup": {
+        "estimate": 0.05832815658011454,
+        "interval": [
+          0.054140686773468435,
+          0.06217635355143197
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "old_gpu_speedup": {
+        "estimate": 3.2526806320070953,
+        "interval": [
+          3.149723017257783,
+          3.351780283162103
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "routed_slowdown": 1.0
+    },
+    {
+      "cell_id": "stream-n128-d128-b1",
+      "route": "cpu",
+      "mean_ms": {
+        "cpu": 3.924795331840869,
+        "cpu_duplicate": 3.8118381222981648,
+        "gpu": 127.63021358478,
+        "stream64": 60.9077238344374
+      },
+      "cpu_mean_ms": 3.868316727069517,
+      "stream64_cpu_speedup": {
+        "estimate": 0.06351110308414382,
+        "interval": [
+          0.05775832332739241,
+          0.06953774358497439
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "old_gpu_speedup": {
+        "estimate": 2.0954684488245072,
+        "interval": [
+          2.0500117952807386,
+          2.1403201380169117
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "routed_slowdown": 1.0
+    },
+    {
+      "cell_id": "stream-n128-d128-b16",
+      "route": "cpu",
+      "mean_ms": {
+        "cpu": 22.041383417672478,
+        "cpu_duplicate": 22.29915057857094,
+        "gpu": 1570.6434359174941,
+        "stream64": 403.61029987373814
+      },
+      "cpu_mean_ms": 22.17026699812171,
+      "stream64_cpu_speedup": {
+        "estimate": 0.05492988411112715,
+        "interval": [
+          0.046312261072387825,
+          0.06847370898682481
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "old_gpu_speedup": {
+        "estimate": 3.8914850201019155,
+        "interval": [
+          3.815863605121927,
+          3.9757778678978872
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "routed_slowdown": 1.0
+    },
+    {
+      "cell_id": "stream-n512-d64-b1",
+      "route": "cpu",
+      "mean_ms": {
+        "cpu": 9.498537206430532,
+        "cpu_duplicate": 9.288914792705327,
+        "gpu": 387.9121871274644,
+        "stream64": 198.71667983291746
+      },
+      "cpu_mean_ms": 9.39372599956793,
+      "stream64_cpu_speedup": {
+        "estimate": 0.047271955265487775,
+        "interval": [
+          0.04505997513269341,
+          0.049454205032814
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "old_gpu_speedup": {
+        "estimate": 1.9520866967665924,
+        "interval": [
+          1.895850277873988,
+          2.0011091901742466
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "routed_slowdown": 1.0
+    },
+    {
+      "cell_id": "stream-n512-d64-b16",
+      "route": "cpu",
+      "mean_ms": {
+        "cpu": 126.75123412433702,
+        "cpu_duplicate": 120.15386804220421,
+        "gpu": 4457.367098958153,
+        "stream64": 1311.5325662959854
+      },
+      "cpu_mean_ms": 123.4525510832706,
+      "stream64_cpu_speedup": {
+        "estimate": 0.09412846791286611,
+        "interval": [
+          0.08658212844392518,
+          0.10240796082019869
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "old_gpu_speedup": {
+        "estimate": 3.3985942960963573,
+        "interval": [
+          3.3555806783893485,
+          3.443582708324919
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "routed_slowdown": 1.0
+    },
+    {
+      "cell_id": "stream-n512-d128-b1",
+      "route": "cpu",
+      "mean_ms": {
+        "cpu": 18.62917266165217,
+        "cpu_duplicate": 18.104454335116316,
+        "gpu": 797.0054942925344,
+        "stream64": 327.7097505851998
+      },
+      "cpu_mean_ms": 18.366813498384243,
+      "stream64_cpu_speedup": {
+        "estimate": 0.056045978081476516,
+        "interval": [
+          0.05426336477791749,
+          0.05765690581193611
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "old_gpu_speedup": {
+        "estimate": 2.4320469344268854,
+        "interval": [
+          2.33519695729643,
+          2.5284907905491965
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "routed_slowdown": 1.0
+    },
+    {
+      "cell_id": "stream-n512-d128-b16",
+      "route": "cpu",
+      "mean_ms": {
+        "cpu": 274.0824661220055,
+        "cpu_duplicate": 268.8102526687241,
+        "gpu": 10708.326036704722,
+        "stream64": 2917.904886830608
+      },
+      "cpu_mean_ms": 271.44635939536477,
+      "stream64_cpu_speedup": {
+        "estimate": 0.0930278298722089,
+        "interval": [
+          0.08758851535842933,
+          0.09839335934590338
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "old_gpu_speedup": {
+        "estimate": 3.6698680909835866,
+        "interval": [
+          3.64261148152854,
+          3.6981731023173685
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "routed_slowdown": 1.0
+    },
+    {
+      "cell_id": "stream-n1024-d64-b1",
+      "route": "cpu",
+      "mean_ms": {
+        "cpu": 28.335166372319993,
+        "cpu_duplicate": 29.04893737650127,
+        "gpu": 1164.9014422934367,
+        "stream64": 510.4003596279654
+      },
+      "cpu_mean_ms": 28.69205187441063,
+      "stream64_cpu_speedup": {
+        "estimate": 0.05621479556817805,
+        "interval": [
+          0.05370135144798882,
+          0.05914363888987038
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "old_gpu_speedup": {
+        "estimate": 2.2823288038874856,
+        "interval": [
+          2.2257416814113298,
+          2.3458584152351194
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "routed_slowdown": 1.0
+    },
+    {
+      "cell_id": "stream-n1024-d64-b16",
+      "route": "cpu",
+      "mean_ms": {
+        "cpu": 469.42681821140775,
+        "cpu_duplicate": 500.01207533447695,
+        "gpu": 14988.425566709338,
+        "stream64": 4445.814519580987
+      },
+      "cpu_mean_ms": 484.7194467729423,
+      "stream64_cpu_speedup": {
+        "estimate": 0.10902826571780296,
+        "interval": [
+          0.10348892930068376,
+          0.11347011931320927
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "old_gpu_speedup": {
+        "estimate": 3.371356474881004,
+        "interval": [
+          3.3610613794415043,
+          3.3825936105542724
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "routed_slowdown": 1.0
+    },
+    {
+      "cell_id": "stream-n1024-d128-b1",
+      "route": "cpu",
+      "mean_ms": {
+        "cpu": 54.94851437348795,
+        "cpu_duplicate": 55.96163912317328,
+        "gpu": 2381.439572335997,
+        "stream64": 882.2427584976442
+      },
+      "cpu_mean_ms": 55.45507674833061,
+      "stream64_cpu_speedup": {
+        "estimate": 0.06285693615979812,
+        "interval": [
+          0.061604045844428704,
+          0.06416541433618174
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "old_gpu_speedup": {
+        "estimate": 2.6993019204728967,
+        "interval": [
+          2.6134655048272983,
+          2.7946069961253177
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "routed_slowdown": 1.0
+    },
+    {
+      "cell_id": "stream-n1024-d128-b16",
+      "route": "cpu",
+      "mean_ms": {
+        "cpu": 1126.1282467518565,
+        "cpu_duplicate": 1092.1188534982016,
+        "gpu": 33774.62962228916,
+        "stream64": 9319.428852336085
+      },
+      "cpu_mean_ms": 1109.123550125029,
+      "stream64_cpu_speedup": {
+        "estimate": 0.11901196604414303,
+        "interval": [
+          0.11533050196877505,
+          0.12251786738780004
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "old_gpu_speedup": {
+        "estimate": 3.6241093909765656,
+        "interval": [
+          3.614464644901511,
+          3.635018433990582
+        ],
+        "seed": 20261007,
+        "samples": 10000,
+        "blocks": 8
+      },
+      "routed_slowdown": 1.0
+    }
+  ],
+  "defaults_changed": false,
+  "routing_estimand": "Frozen shape-specific route estimate assembled from measured complete native calls; unchanged CPU shapes use their paired CPU baseline; dynamic dispatcher overhead is unmeasured",
+  "correct": true,
+  "stable": false,
+  "equivalence": {
+    "aggregate": {
+      "estimate": 0.9935184224079198,
+      "interval": [
+        0.9519285682967499,
+        1.037907620274493
+      ],
+      "seed": 20261007,
+      "samples": 10000,
+      "blocks": 8
+    },
+    "stream-n128-d64-b1": {
+      "estimate": 0.967506288099802,
+      "interval": [
+        0.8926915372327027,
+        1.0487867474865282
+      ],
+      "seed": 20261007,
+      "samples": 10000,
+      "blocks": 8
+    },
+    "stream-n128-d64-b16": {
+      "estimate": 1.0327600600634808,
+      "interval": [
+        0.8545481495821121,
+        1.237998327740795
+      ],
+      "seed": 20261007,
+      "samples": 10000,
+      "blocks": 8
+    },
+    "stream-n128-d128-b1": {
+      "estimate": 0.9712195923628651,
+      "interval": [
+        0.8318430818439474,
+        1.0898519609209412
+      ],
+      "seed": 20261007,
+      "samples": 10000,
+      "blocks": 8
+    },
+    "stream-n128-d128-b16": {
+      "estimate": 1.0116946906650055,
+      "interval": [
+        0.8438156109186398,
+        1.1704793048487234
+      ],
+      "seed": 20261007,
+      "samples": 10000,
+      "blocks": 8
+    },
+    "stream-n512-d64-b1": {
+      "estimate": 0.9779310846323485,
+      "interval": [
+        0.8980407788060337,
+        1.066355689051742
+      ],
+      "seed": 20261007,
+      "samples": 10000,
+      "blocks": 8
+    },
+    "stream-n512-d64-b16": {
+      "estimate": 0.947950281291454,
+      "interval": [
+        0.8554502268144453,
+        1.0451879475464545
+      ],
+      "seed": 20261007,
+      "samples": 10000,
+      "blocks": 8
+    },
+    "stream-n512-d128-b1": {
+      "estimate": 0.9718335142378074,
+      "interval": [
+        0.9195094552039172,
+        1.0323186275520502
+      ],
+      "seed": 20261007,
+      "samples": 10000,
+      "blocks": 8
+    },
+    "stream-n512-d128-b16": {
+      "estimate": 0.9807641345034654,
+      "interval": [
+        0.8541015494078079,
+        1.0939492694802806
+      ],
+      "seed": 20261007,
+      "samples": 10000,
+      "blocks": 8
+    },
+    "stream-n1024-d64-b1": {
+      "estimate": 1.0251902880965098,
+      "interval": [
+        0.9950687408590841,
+        1.0537230887958862
+      ],
+      "seed": 20261007,
+      "samples": 10000,
+      "blocks": 8
+    },
+    "stream-n1024-d64-b16": {
+      "estimate": 1.0651544733630771,
+      "interval": [
+        0.9876599699364517,
+        1.1263343992398565
+      ],
+      "seed": 20261007,
+      "samples": 10000,
+      "blocks": 8
+    },
+    "stream-n1024-d128-b1": {
+      "estimate": 1.0184377095766242,
+      "interval": [
+        0.9908208753036915,
+        1.050110731503293
+      ],
+      "seed": 20261007,
+      "samples": 10000,
+      "blocks": 8
+    },
+    "stream-n1024-d128-b16": {
+      "estimate": 0.9697997156613825,
+      "interval": [
+        0.8930160607744929,
+        1.0540271174241318
+      ],
+      "seed": 20261007,
+      "samples": 10000,
+      "blocks": 8
+    }
+  },
+  "routes": {
+    "stream-n128-d64-b1": "cpu",
+    "stream-n128-d64-b16": "cpu",
+    "stream-n128-d128-b1": "cpu",
+    "stream-n128-d128-b16": "cpu",
+    "stream-n512-d64-b1": "cpu",
+    "stream-n512-d64-b16": "cpu",
+    "stream-n512-d128-b1": "cpu",
+    "stream-n512-d128-b16": "cpu",
+    "stream-n1024-d64-b1": "cpu",
+    "stream-n1024-d64-b16": "cpu",
+    "stream-n1024-d128-b1": "cpu",
+    "stream-n1024-d128-b16": "cpu"
+  },
+  "speedup": {
+    "estimate": 1.0,
+    "interval": [
+      1.0,
+      1.0
+    ],
+    "seed": 20261007,
+    "samples": 10000,
+    "blocks": 8
+  },
+  "max_shape_slowdown": 1.0,
+  "old_gpu_speedup": {
+    "estimate": 3.44753179879827,
+    "interval": [
+      3.4400043599178804,
+      3.4544842021959563
+    ],
+    "seed": 20261007,
+    "samples": 10000,
+    "blocks": 8
+  }
+}

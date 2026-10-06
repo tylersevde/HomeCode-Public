@@ -1,0 +1,54 @@
+THIRD-PARTY NOTICES AND BOUNDARIES
+6 October 2026
+
+The project licenses cover the project owner's contributions; they do not
+relicense third-party software or model artifacts. Versions and hashes of
+measured components are recorded in the experimental evidence. This list
+provides context, not a claim that every component is bundled.
+
+Original demonstration
+The owner supplied reference/algorithm_efficiency_experiment.zip and attributes
+it to ChatGPT Astra Max through an iPadOS interface. It contains three files;
+no separate upstream license was found within it. The owner has authorized the
+project licensing described in LICENSING.txt. The original bytes are retained.
+
+Model artifacts (full private/HDD backup only)
+The Qwen2.5-1.5B-Instruct family publishes Apache License 2.0 terms. The copied
+upstream license is third-party-licenses/QWEN2.5-LICENSE.txt. The Llama 3.2
+family uses the Llama 3.2 Community License, with its own use and attribution
+requirements; see third-party-licenses/LLAMA-3.2-LICENSE.txt and NOTICE-LLAMA.txt.
+The compiled Hailo HEFs are separately identified by recorded SHA-256 hashes.
+An upstream license copy does not imply that a compiled artifact is identical
+to upstream weights or that a private backup grants public redistribution
+rights. No HEF, weight archive or opaque model context is in the public edition.
+
+Hailo
+HailoRT 5.1.1 and the Hailo Model Zoo GenAI distribution supplied runtime and
+model integration used by the experiment. The GenAI repository's MIT license
+is retained in third-party-licenses/HAILO-MODEL-ZOO-GENAI-LICENSE.txt. That
+repository license does not replace individual model licenses. Runtime API
+availability is not evidence that all cache policies passed this experiment.
+
+Software used, normally obtained separately
+Debian GNU/Linux and the Raspberry Pi kernel/firmware stack; CPython; NumPy;
+Jinja2; psutil; Matplotlib; GCC and libgomp/OpenMP; glibc; Vulkan headers/loader,
+Mesa/V3D and shader compilation tools; HailoRT; Git and GitHub CLI. These are
+separate upstream projects with their own copyright notices and license terms.
+Installed operating systems and Python environments are not archived as a
+complete redistributable image. Consult the installed package metadata and
+upstream distributions for their complete license notices and source offers.
+
+Vendored helper
+vendor/hat_sensor.py is the project's preserved sensor helper. Its provenance
+and source hash are retained by the project; no separate upstream LICENSE was
+found alongside the supplied helper. It is included under the owner's project
+source authorization. No authorship by an external organization is inferred.
+
+License texts
+Unmodified third-party license texts retain their notices. Creative Commons
+publishes its legal code for reuse under CC0. References and brief quotations
+in the research report remain attributable to the cited authors.
+
+Product names, model names and user-reported ChatGPT model labels identify the
+experiment context. They do not imply official sponsorship or certify an
+internal model identity. See CREDITS.txt for the full attribution statement.

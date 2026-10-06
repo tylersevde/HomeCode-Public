@@ -1,0 +1,70 @@
+{
+  "limitations": [
+    "Public projections reproduce final statistics and transcript/scoring invariants; they do not rerun numerical FP64 oracle checks, tokenizer/device context audits, or hardware telemetry checks.",
+    "Original seals bind original private bytes. Public hashes bind only the explicitly transformed public bytes.",
+    "Historical initialization failures and dependency-closed stages are described in the five publication documents; they are not successful or measured final comparisons."
+  ],
+  "omissions": [
+    "HEF model weights and external runtimes/tokenizers",
+    "large numerical fixtures and raw numerical outputs",
+    "raw opaque device contexts and token ID arrays",
+    "machine identifiers, process ownership and absolute timestamps",
+    "private authentication, service, telemetry and backup logs",
+    "private configuration/parent absolute paths",
+    "historical complete runs and original checksums manifests (retained privately)",
+    "original oversized working README; a new public landing README is provided"
+  ],
+  "scope": "Four completed final comparisons, including pilots, all duplicate controls and planned NPU turns.",
+  "sources": {
+    "completion-cpu-20261006T120615Z-compare": {
+      "files": {
+        "cpu-compare.jsonl": "6f5eb71af226933ffcb43ad00d53caa8a83099cdadf4e43a37f187e1da7943a1",
+        "cpu-compare.png": "fd3cb1894b7a05401869e70a33e406ce42fb463ab1e1ecb93eec36acb7417c01",
+        "equivalence.png": "d764dad3565b02c0f1a4ee6396467efebdcf86456c51a6fdea6c2a13d7be556d",
+        "fixtures.json": "1df9c26ad26d9278491a21756321f22d74ad2c201afbe79d778a51d1ffa3e313",
+        "protocol.json": "2b191dd88cde63c317cd62bfcd720d9c6f419b59c42419fde604af725931d7a3",
+        "schedule.json": "b20db08ff8b4c361d3c0e755017959456e74b4445cab46d3a6d3c6b50335e1f6",
+        "summary.json": "7c597bcece2747f6ea8f62139dfc8dc4f3152b3340f2fd1c1ec1b823db4e2bc1"
+      },
+      "original_checksums_sha256": "33efb566974a8f2b4669fef4a1adb360212eb15f7f1bbf693ce5f5a69a9ec3a8",
+      "track": "cpu"
+    },
+    "completion-gpu-develop-20261006T145314Z-develop": {
+      "files": {
+        "completion-gpu.jsonl": "611daed99720ae3f04224040d9b07fcf2f39f988c5d9077c236e49e06bd774d6",
+        "fixtures.json": "13c7dfbc23a718b363be2dad525a44f22b707084a91ba98c70bb7a27201523ba",
+        "protocol.json": "cea2d47a27874dd49c22573e5d4ca0424da592733289e3f34b73ccea45dc87b3",
+        "results.png": "34505dd9d1bd579396d1645d2b1922c7782d294c440a3a61617da5d21b82d35e",
+        "schedule.json": "d57f71e9408cb34db563e359676eb241cb04311dd410f7861722a152882c59f2",
+        "summary.json": "947dee8f042041bf9c39424c0e7597c4adef37629b14695f2f5304a6bd38c8eb"
+      },
+      "original_checksums_sha256": "cd5bd88b73c250d8f3dfa1401d85d031dddcab6b82627b17e0785df1035ec318",
+      "track": "gpu"
+    },
+    "completion-npu-develop-20261006T155952Z-develop": {
+      "files": {
+        "completion-npu.jsonl": "757e9b568e6ec8b3b8da44920a4108ad30e9cb08ff0817b20e272710013ddc2b",
+        "fixtures.json": "ca5b3ddb5a917cd825133180855bb1170a769d0dae270692c3ed1a6981583b8d",
+        "protocol.json": "8c01acfb502faeb651f1c9c6b0d488cc40192061dba9692eb7319ec92f0b0630",
+        "results.png": "7e8962368c26a3702ca5d2110e2da4f76fdbe961a126d5df7252d78d02170e18",
+        "schedule.json": "0c71167e5de8c7147c12529dce1ac2ca3933961cb402ded4c4f357302c258f5a",
+        "summary.json": "d8724611fad9a18012178dbc18cd701e8f2d9a88c8d904d23815ff521ba63755"
+      },
+      "original_checksums_sha256": "22c21b68b7d38ab08b8551b56e16aadf144522d91394d3342aab097d7a23345b",
+      "track": "npu"
+    },
+    "completion-npu-diagnostic-20261006T112430Z-diagnostic": {
+      "files": {
+        "completion-npu.jsonl": "4900b5fa1f2580c4615fce1e720bbab5cdcc1bb5fec2964799231d515bfb271b",
+        "fixtures.json": "20b8ee326f756c615ad0f961e5e69f649ebbf95a5f34ffb874d0a596c79ed2cc",
+        "protocol.json": "66c3af6f5a22d06cbd50c940bb4f20ac04f9f513a9315ab3fa997d1ef43d99b4",
+        "results.png": "b64f87241a23d28fe3a3d9712d932fed201834935f6ff112cb805ac346e01f48",
+        "schedule.json": "f68e30e176c4d8b0a919c523fae7e3f784d866296ebb02fee6718b04e785db95",
+        "summary.json": "78831f913cb2c590de0d4242af5876989c2d27887d990fdec9db9a48f400c94f"
+      },
+      "original_checksums_sha256": "b525276f0cde53a12dd3368c67a92f4bb86526a38141f4353d4f5396455263f7",
+      "track": "npu"
+    }
+  },
+  "version": "public-adaptation-v1"
+}

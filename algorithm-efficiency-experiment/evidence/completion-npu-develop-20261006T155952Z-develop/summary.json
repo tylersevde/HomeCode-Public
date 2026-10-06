@@ -1,0 +1,55 @@
+{
+  "track": "npu",
+  "stage": "develop",
+  "complete": true,
+  "selected": null,
+  "accepted": false,
+  "scientific_qualification": false,
+  "diagnostic_only": false,
+  "decision": "no_qualified_candidate",
+  "metrics": [
+    {
+      "label": "native",
+      "planned": 96,
+      "observed": 46,
+      "valid": 24,
+      "correct": 3,
+      "per_size_correct": {
+        "128": 0,
+        "512": 3,
+        "1024": 0
+      },
+      "contracts": 0,
+      "accuracy": 0.03125,
+      "meets_numeric_threshold": false,
+      "qualified": false
+    },
+    {
+      "label": "candidate",
+      "planned": 96,
+      "observed": 96,
+      "valid": 96,
+      "correct": 64,
+      "per_size_correct": {
+        "128": 22,
+        "512": 19,
+        "1024": 23
+      },
+      "contracts": 0,
+      "accuracy": 0.6666666666666666,
+      "meets_numeric_threshold": false,
+      "qualified": false
+    }
+  ],
+  "defaults_changed": false,
+  "accuracy_gain": {
+    "estimate": 0.6354166666666667,
+    "interval": [
+      0.48958333333333326,
+      0.78125
+    ],
+    "seed": 20261006,
+    "samples": 10000,
+    "blocks": 8
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "version": "completion-npu-v1",
+  "track": "npu",
+  "stage": "develop",
+  "blocks": 8,
+  "development_seconds": 7200,
+  "confirmation_seconds": 7200,
+  "diagnostic_charged_to": "develop",
+  "cleanup_seconds": 120,
+  "pilot_margin": 1.2,
+  "sizes": [
+    128,
+    512,
+    1024
+  ],
+  "turns": 4,
+  "diagnostic_arms": [
+    "full_table_actual_history",
+    "full_table_independent",
+    "selected_fact_actual_history",
+    "selected_fact_independent"
+  ],
+  "diagnostic_stop_condition": "punctuation",
+  "diagnostic_only": false,
+  "model_sha256": "1129f5f8384e4e45c5890104dc4ec1aee77e800ce1484ddc3aa942399aada425",
+  "runtime": "5.1.1",
+  "parameters": {
+    "temperature": 0.699999988079071,
+    "top_p": 0.800000011920929,
+    "top_k": 20,
+    "frequency_penalty": 1.0,
+    "max_generated_tokens": 32,
+    "do_sample": false,
+    "seed": 12345
+  },
+  "bindings": {
+    "bos_token": "<|begin_of_text|>",
+    "eos_token": "<|eot_id|>",
+    "date_string": "03 Oct 2026",
+    "tools": null
+  },
+  "original_system": "Answer using the reference facts. Keep answers to one word.",
+  "native_stops": [
+    "<|end_of_text|>",
+    "<|eom_id|>",
+    "<|eot_id|>"
+  ],
+  "extra_stops": [
+    ".",
+    "\n"
+  ],
+  "revised_policy": {
+    "version": 1,
+    "id": "fulltable-exact-lookup-repeat-v1",
+    "system": "You answer color lookup questions. The complete reference table in the first user message is the only source of facts. For each turn, read the latest question, match its full item identifier exactly to that table, and return the color from that entry. Do not use previous assistant answers as evidence. If a question repeats, look up the item again and answer in exactly the same format. Respond with exactly one lowercase color word followed immediately by a period. Do not add an item identifier, another color, explanation, note, or comment about repetition.",
+    "stop_condition": "punctuation",
+    "justification": "The fresh matched diagnostic found 44/96 strictly correct full-table actual-history answers versus 80/96 independent full-table answers. Full-table history accuracy fell from 21/24 on the first turn to 4/24 on the repeated fourth question; selected-fact history likewise fell from 23/24 to 2/24 despite supplying the relevant fact. Raw history failures included alternative colors, explanations and comments about repeated questions. Independent full-table results also contained incorrect color lookups, with 30/32 correct at 128 tokens versus 23/32 at 1024. This single system-prompt revision instructs exact identifier lookup in the original complete table, excludes previous assistant answers as factual authority, preserves identical answer formatting on repetition, and explicitly requests a terminating period. Full-table inputs, actual raw dialogue history, punctuation stops, model, decoding, token limit, scoring and qualification thresholds remain fixed. No CPU-selected fact or corrected answer enters qualification. Table sizing uses the original native control; both arms share the same complete table. Nominal groups are control-sized, with actual candidate token counts recorded.",
+    "diagnostic_checksums_sha256": "b525276f0cde53a12dd3368c67a92f4bb86526a38141f4353d4f5396455263f7"
+  },
+  "sizing": "largest original-control first prompt at or below target; identical complete table in every matched arm",
+  "history": "all actual previous user prompts and model assistant bodies; never corrected answers",
+  "independent": "fresh complete question with no earlier user or assistant messages",
+  "selected_fact": "CPU selects only the queried input fact; model answer remains raw diagnostic output",
+  "context_policy": "full_rebuild_each_turn",
+  "scoring": "unchanged strict whole-answer rubric",
+  "qualifying_task": "full_table_actual_history",
+  "candidate_count_limit": 1,
+  "development_gate": {
+    "planned": 96,
+    "valid": 96,
+    "correct": 92,
+    "per_size": 29,
+    "contracts": 0
+  },
+  "confirmation_gate": {
+    "planned": 192,
+    "valid": 192,
+    "correct": 183,
+    "per_size": 58,
+    "contracts": 0,
+    "min_gain": 0.05
+  },
+  "bootstrap_seed": 20261006,
+  "bootstrap_samples": 10000,
+  "bootstrap_unit": "paired whole blocks",
+  "control": "unchanged native-stop full-table actual-history dialogue",
+  "defaults_changed": false
+}

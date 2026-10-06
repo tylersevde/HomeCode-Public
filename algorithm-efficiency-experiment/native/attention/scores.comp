@@ -1,0 +1,33 @@
+#version 450
+#ifndef TILE
+#define TILE 8
+#endif
+#ifndef CAUSAL
+#define CAUSAL 0
+#endif
+layout(local_size_x=TILE,local_size_y=TILE) in;
+layout(set=0,binding=2,std430) readonly buffer Queries {float q[];};
+layout(set=0,binding=3,std430) readonly buffer Keys {float k[];};
+layout(set=0,binding=5,std430) buffer Scores {float scores[];};
+layout(push_constant) uniform Shape {uint n;uint d;uint batch;uint first;uint rows;} s;
+shared float a[TILE][TILE];
+shared float z[TILE][TILE];
+void main() {
+    uint lx=gl_LocalInvocationID.x,ly=gl_LocalInvocationID.y;
+    uint row=s.first+gl_WorkGroupID.y*TILE+ly,col=gl_WorkGroupID.x*TILE+lx,b=gl_WorkGroupID.z;
+    uint limit=s.first+s.rows;
+    // This branch is uniform across the workgroup; no invocation skips a shared barrier.
+    if(CAUSAL>0 && gl_WorkGroupID.x*TILE>=min(limit,s.first+(gl_WorkGroupID.y+1)*TILE)) {
+        if(row<limit && col<limit) scores[(b*s.n+row)*s.n+col]=-1.0/0.0;
+        return;
+    }
+    float total=0;
+    for(uint base=0;base<s.d;base+=TILE) {
+        a[ly][lx]=(row<limit && base+lx<s.d)?q[(b*s.n+row)*s.d+base+lx]:0;
+        z[ly][lx]=(col<limit && base+ly<s.d)?k[(b*s.n+col)*s.d+base+ly]:0;
+        barrier();
+        for(uint j=0;j<TILE;j++) total+=a[ly][j]*z[j][lx];
+        barrier();
+    }
+    if(row<limit && col<limit) scores[(b*s.n+row)*s.n+col]=(col<=row)?total*inversesqrt(float(s.d)):-1.0/0.0;
+}

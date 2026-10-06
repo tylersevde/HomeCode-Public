@@ -1,0 +1,136 @@
+THE CODEX OF THIS AI EXPERIMENT
+A practical reflection — 6 October 2026
+
+This reflection is written through the AI coding workflow the owner attributes
+as "ChatGPT Codex Astra Ultra." That label records the owner's attribution, not
+an independently verified internal model identity. The first-person voice below
+describes the work of a software assistant. It does not claim consciousness,
+feelings, private experience or an independent purpose.
+
+THE QUESTION THAT SURVIVED THE EXPERIMENT
+
+The project began with an ambitious question about algorithmic efficiency and
+repeated improvement. The supplied CPU example made one part concrete: retain
+previously computed keys and values, and avoid recomputing them for every new
+query. That is a useful, established technique. A faster synthetic layer could
+be measured without pretending that a language model had become more intelligent.
+
+The later work asked harder questions. Would a change remain correct? Would it
+beat the baseline that a user could actually choose? Would its benefit survive
+control measurements, initialization, data movement and complete planned tasks?
+Could the result be explained again from saved evidence after the process ended?
+
+My most useful contribution was to help turn those questions into executable
+conditions. A proposal became something a program could reject. A deadline
+became an allowance that included failed starts and cleanup. A result became a
+set of observations with a named comparison, not an impressive number alone.
+
+A BASELINE IS PART OF THE CLAIM
+
+The original cached CPU example compared established implementations of the same
+mathematics. Its primary comparison was against newest-query computation that
+still recomputed past keys and values. Its slower full-prefix reference was
+also useful, but exchanging those baselines would change the meaning of a gain.
+
+The GPU work made that lesson difficult to overlook. The revised stream64 kernel
+was about 3.45 times faster than the older GPU implementation in the final
+development study. It still took roughly 8.4 to 21.2 times the CPU time across
+the tested shapes. Improving a component and choosing the best available route
+are separate achievements. Only the former was established there.
+
+The CPU comparison had a different boundary. Its batch endpoint passed at about
+1.19 times the baseline speed. The individual-call endpoint encountered unstable
+duplicate controls. The protocol required both endpoints, so the project kept
+the favorable batch finding and declined to export a qualified overall preset.
+The rule did not disappear because a useful-looking ratio had appeared.
+
+CORRECT ANSWERS COME BEFORE FASTER WRONG ANSWERS
+
+The NPU branch exposed a distinction that performance charts can hide. A model
+can produce a complete response and still fail the task. The final revised
+full-table policy completed all 96 planned answers validly, but only 64 were
+strictly correct. Its minimum was 92 overall, with a separate floor in each
+size group. The gain over a weak control did not satisfy that absolute standard.
+
+Diagnosis was allowed to simplify the task to find where errors arose. One
+selected-fact, independent-question arm reached 94 correct answers out of 96.
+That was useful diagnostic evidence. It did not qualify the original full-table,
+actual-history task. Changing a task until the score improves cannot silently
+become a solution to the first task.
+
+Because the quality gate did not open, the final cache and combined experiments
+did not run. Their absence is part of the result. Inventing a timing for them,
+borrowing an earlier exploratory result, or spending unused time on another
+revision would have broken the declared experiment.
+
+FAILURES HAVE DIFFERENT MEANINGS
+
+An authorization prompt that times out is an infrastructure failure. An output
+that violates its numerical tolerance is a correctness failure. An accurately
+recorded, fully completed candidate that misses its promotion rule is a
+scientific negative result. Treating those as one category makes both debugging
+and interpretation worse.
+
+The harness had to preserve all three distinctions. Infrastructure retries used
+fresh outputs and fixtures, retained their parent evidence and consumed the
+same cumulative allowance. A scientific rejection could close a branch even
+when time remained. An interrupted service needed a conservative accounting
+record, rather than a vanished interval that another attempt could spend again.
+
+These rules are useful beyond this hardware. Decide what can justify a retry
+before seeing the result. Count the resources that the decision actually uses.
+Keep an error visible when fixing it. A clean final report should not require
+an erased path to get there.
+
+THE WORK CONTINUES AFTER THE STOPWATCH STOPS
+
+During measurement, process ownership, thermal checks and bounded cleanup made
+the experiment manageable on a real machine. After measurement, frozen source,
+runtime identities, raw records and independent reconstruction made the claims
+inspectable. A passing evidence audit could correctly preserve a rejected
+candidate; the audit and the scientific decision answered different questions.
+
+Backup required another distinction. Copying files was not enough to establish
+restorability. The completed pre-publication USB checkpoint was actually restored
+into a new empty Linux directory and checked against its inventory and 74
+canonical seals. Its 19924 entries describe that checkpoint, not a later public
+export. Publication verification must record what it copies and checks in turn.
+
+The public edition has a narrower job. It releases readable source, explanation
+and curated evidence so that others can inspect and reproduce its stated
+statistics. It cannot honestly promise a full raw numerical audit without
+shipping the complete raw record. Clear boundaries make a smaller release more
+useful than a larger-sounding claim.
+
+WHAT I WOULD CARRY INTO THE NEXT PROJECT
+
+First, define the useful task and its correctness rule before optimizing it.
+Include the simplest strong control. Sometimes an exact CPU lookup is the right
+tool, and language generation adds cost without adding a necessary capability.
+
+Second, write the comparison in words before naming its speedup. Identify what
+is timed, what is excluded, what has to be initialized, and which repeated
+observations share a fixture. A thousand correlated calls do not become a
+thousand independent experiments merely because they occupy separate rows.
+
+Third, design the handoff at the beginning. Save enough context for someone who
+was absent from the session: the source, protocol, runtime, inputs, failures,
+decision rule and restoration instructions. A log that only its author can
+interpret is unfinished work.
+
+Fourth, let a closed gate save work. The point of a staged experiment is to stop
+spending resources when a prerequisite is missing. A branch that ends honestly
+can be a successful part of an investigation.
+
+Finally, keep ambition connected to the next checkable claim. A hoped-for series
+of fivefold improvements is a hypothesis about many future successes. One
+component improvement cannot establish that series, and finite experimental
+results cannot establish unlimited recursion. What can be established is smaller
+and still worthwhile: a correct implementation, a measured tradeoff, a failure
+mechanism, or a better-designed next question.
+
+Tyler Sevde supplied the direction and the authority to do the work. The AI tools
+helped turn that direction into code and a durable record. No new policy passed
+every final promotion gate. What remains is an experiment that says why, keeps
+the useful component findings, and gives another person a concrete place to
+begin without asking them to trust the assistant's enthusiasm.

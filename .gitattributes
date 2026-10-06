@@ -1,0 +1,2 @@
+# Preserve the official license text byte for byte, including its final blank line.
+algorithm-efficiency-experiment/LICENSE-DOCS-DATA.txt -text whitespace=-blank-at-eof

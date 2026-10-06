@@ -1,0 +1,260 @@
+ALGORITHM EFFICIENCY EXPERIMENT — INSTRUCTIONS
+Publication edition, 6 October 2026
+
+Use the section matching your purpose. Reading reports, reproducing public
+statistics, rerunning the portable CPU demonstration, and conducting a new Pi
+hardware experiment are different activities with different prerequisites.
+The completed campaigns remain closed. None of these instructions asks you to
+restart them, apply a rejected policy, overwrite saved evidence or download a
+model automatically.
+
+1. READ THE RESULTS WITHOUT HARDWARE
+
+Start with README.txt, RESEARCH-PAPER.txt and COMPLETION-RESULTS.txt. Check
+PUBLICATION-MANIFEST.json for files included in your edition and the applicable
+PUBLICATION-STATUS.json for delivery/verification state. Open included HTML
+reports locally in a browser. Viewing an existing report does not require the
+Pi, HAT, model weights or a Python plotting environment.
+
+The private archive's historical README.md contains the commands used while experiments were being
+developed. They are retained as history. In particular, do not copy a command
+with an existing run/campaign path and assume it is a new experiment. A report
+command writes derived files and must not be run against sealed evidence.
+
+2. RUN THE ORIGINAL CPU-ONLY DEMONSTRATION
+
+Requirements: Python 3 and NumPy. A normal Linux, macOS or Windows Python setup
+can run this small numerical example; the shell commands below use a POSIX shell.
+No Raspberry Pi, Hailo runtime, Vulkan driver, model, paid API or network access
+is needed once Python and NumPy are installed. Installing packages may of course
+require network access. The saved original environment was Python 3.12.14,
+NumPy 2.3.5 on x86_64 Linux; matching those versions still does not guarantee the
+same timings on a different machine or numerical-library build.
+
+From a working checkout containing reference/algorithm_efficiency_demo.py
+(retained in both editions for the harness):
+
+  python3 -m venv "$HOME/.venvs/algorithm-efficiency-demo"
+  "$HOME/.venvs/algorithm-efficiency-demo/bin/python" -m pip install numpy
+  demo_output=$(mktemp -d "${TMPDIR:-/tmp}/algorithm-efficiency-demo.XXXXXX")
+  "$HOME/.venvs/algorithm-efficiency-demo/bin/python" -B \
+    reference/algorithm_efficiency_demo.py \
+    --output "$demo_output/algorithm_efficiency_results.json"
+
+Use an existing suitable environment instead if preferred. The mktemp command
+creates a fresh directory outside the checkout. Keep that path for your result;
+do not replace reference/algorithm_efficiency_results.json or the original ZIP.
+On Windows, activate a virtual environment and supply your own new absolute
+output path instead of using the shell variables above.
+
+The public edition also preserves the unchanged ZIP and its three original
+members in original/. To run that copy, substitute
+original/algorithm_efficiency_demo.py for the reference/ path above. Keep the
+original/ results and README unchanged as supplied provenance.
+
+The program checks 36 seed/shape/variant cases, warms every measured variant,
+then measures seven repetitions per variant at lengths 128, 256 and 512, with
+dimension 64. Timed variant order is randomized. It compares every output
+position using absolute and relative tolerances of 1e-10. The output records
+individual timings, medians, correctness errors, requested threading, numerical
+library configuration, memory costs and arithmetic counts. A failed numerical
+assertion stops execution; do not turn that into a performance claim.
+
+Compare cached_stream with latest_query_no_cache for the intended primary
+comparison. The much less efficient full_prefix_reference is an additional
+reference, not an interchangeable baseline. Results depend on your machine;
+this run is a new replication of a synthetic computation, not a new result in
+one of the closed Pi campaigns.
+
+To inspect available arguments without running the benchmark:
+
+  python3 -B reference/algorithm_efficiency_demo.py --help
+  python3 -B experiment.py --help
+
+The first command still needs NumPy because the original file imports it before
+parsing arguments. The second inspects the advanced harness; it is not a model
+load or a request to start an experiment.
+The harness command needs its Python dependencies described in section 4;
+installing NumPy alone for the original example does not provision the harness.
+
+3. REPRODUCE THE RELEASED STATISTICS
+
+From the public edition's root, with NumPy available, run:
+
+  python3 -B tools/validate_public.py .
+
+The verifier is read-only, prints JSON, checks the public package hashes and
+independently reconstructs its released statistical/context checks. It does not
+load a model or benchmark a device. The public-adaptation-v1 export keeps per-run
+summary.json,
+protocol.json and measurements.jsonl under evidence/<original-run-id>/; the NPU
+release also includes fixtures.json and planned turn outcomes, including absent
+and quarantined turns. These public files are derivative publication artifacts.
+Their hashes certify those bytes; they are not the original private run seals.
+NPU rows retain observed outcomes and explicitly mark unobserved planned turns;
+they do not invent missing generations. Opaque context and token-ID arrays are
+omitted from the public projection.
+
+Use the public edition's evidence index and manifest to locate individual runs.
+The exported file list defines the available scope; an absent raw tensor or
+parent seal cannot be validated by a script that never received it. Preserve
+the released observations and write any regenerated outputs into a new location.
+
+Public reproduction is statistical and evidential within that curated release.
+It can establish that the released inputs produce the stated summaries and
+decisions. It cannot establish full raw numerical correctness, reconstruct
+omitted service/ledger state, or independently verify every historical artifact.
+Recorded successful private audits are evidence of those completed checks;
+they are not a claim that the reduced public package can repeat every check.
+
+CPU batch calls and repeated turns within a dialogue are not independent
+experimental samples. Use the frozen grouping and paired bootstrap definitions.
+Do not divide NPU correctness only by observed or valid responses: the full
+planned denominator includes missing, invalid and quarantined answers.
+
+4. ADVANCED PI ENVIRONMENT — RECORDED REQUIREMENTS
+
+The hardware experiments used a Raspberry Pi 5 Model B Rev 1.1, ARM64/aarch64,
+with the Pi OS environment based on Debian 13 (trixie). Final run manifests
+record Linux 6.18.50+rpt-rpi-2712, Python 3.13.5 and glibc 2.41. Treat each run's
+manifest and source snapshot as the authority for that particular measurement.
+
+Recorded Python packages:
+  NumPy 2.2.4; Jinja2 3.1.6; psutil 7.0.0.
+  HailoRT and matching Python bindings 5.1.1 for NPU operations.
+  Matplotlib in a separate existing environment for charts.
+
+Native CPU/GPU build requirements:
+  C++17 g++ (recorded compiler: Debian 14.2.0-19), OpenMP/libgomp,
+  Vulkan headers and loader, glslc/shaderc, and the Pi Mesa V3D Vulkan driver.
+  Validation runs also use Vulkan validation layers and diagnostic tooling.
+  Installed package names include g++, libgomp1, libvulkan-dev, glslc,
+  mesa-vulkan-drivers, vulkan-validationlayers and vulkan-tools.
+
+The frozen build used shaderc 2025.2-1 and flags:
+  -std=c++17 -O3 -mcpu=cortex-a76 -fopenmp -fPIC -shared -ffp-contract=off
+Shaders target Vulkan 1.1. The shared native library links Vulkan even when a
+particular call selects its CPU backend. This build is not a portable x86 build.
+The standalone original NumPy demonstration does not need these dependencies.
+
+NPU operations additionally need an installed, working AI HAT+ 2/Hailo device,
+the matching 5.1.1 driver/runtime/Python stack, device access, compatible model
+HEFs, and the Pi/HAT sensor interfaces used by the supervisor. The recorded
+model manifest and tokenizer/chat-template identity are part of the protocol.
+An arbitrary file with the same model name is not equivalent.
+
+Recorded model identities:
+  Qwen2.5-1.5B-Instruct.hef
+    SHA-256 5310176848638505fbc28add04ba60c97abe345cdb0ec7e3b8ffaa4b0a8c65dd
+  Llama-3_2-3B-Instruct.hef (3,370,416,230 bytes)
+    SHA-256 1129f5f8384e4e45c5890104dc4ec1aee77e800ce1484ddc3aa942399aada425
+
+In the private record,
+campaigns/stream-model-20261003/model-provenance.json records verification against
+the v5.1.1 upstream manifest. Public readers should use their evidence index,
+publication manifest and THIRD-PARTY-NOTICES.txt for the released provenance.
+A mismatching download was quarantined and not loaded; it was not substituted
+for the verified model.
+The public package does not grant a model license or redistribute model weights.
+Obtain any needed third-party material under its own terms; consult
+THIRD-PARTY-NOTICES.txt and the recorded provenance before using it.
+
+5. PATHS AND EDITIONS
+
+The original private harness records fixed installed paths in efficiency/common.py
+and derives its project root from the source file location. Sealed snapshots keep
+those settings. The private archive also preserves the external source mapping
+needed to understand a complete restoration. Moving just a run directory does
+not recreate its absolute parent, service, model and budget dependencies.
+
+Only the public source edition adds these convenience overrides:
+
+  export AE_MODEL_PATH=/absolute/path/to/Qwen2.5-1.5B-Instruct.hef
+  export AE_PLOT_PYTHON=/absolute/path/to/plot-environment/bin/python
+
+AE_MODEL_PATH selects the public harness's default model path. It does not
+rewrite a sealed protocol, approve a different model, supply model weights, or
+make every historical stage use that model. Commands with an explicit --model
+or --challenger-model retain their own role. AE_PLOT_PYTHON selects an interpreter
+with plotting dependencies. These variables are not promised features of the
+original private harness. See the publication manifest for the source adaptation.
+
+Public defaults are models/hailo/v5.1.1/Qwen2.5-1.5B-Instruct.hef below its source
+root and the current Python interpreter for plotting. The recorded Llama path
+is derived from the selected model's parent as
+llama3.2-3b-study/Llama-3_2-3B-Instruct.hef. These defaults are file locations,
+not included model weights. A different local model layout needs an explicit
+compatible path, not a silent change to the model's required identity.
+
+Use the system Python that can import the installed Hailo bindings for advanced
+NPU work; a new isolated virtual environment may not see those bindings. Keep
+plotting dependencies separate if needed. Existing reports can be read without
+Matplotlib. Where supported, --no-charts avoids generating charts; it still
+writes a report and is not an in-place audit of sealed evidence.
+
+The advanced preflight command inspects installed identities without inference:
+
+  python3 -B experiment.py preflight --phase cpu
+
+For an explicitly provisioned NPU working copy, the corresponding inspection is:
+
+  python3 -B experiment.py preflight --phase hat \
+    --model /absolute/path/to/compatible-verified-model.hef
+
+Preflight may read a large archive or model to compute its identity and requires
+the platform interfaces appropriate to the selected phase. It does not install
+drivers, fetch models or certify that a new machine matches every recorded run.
+
+6. FULL PRIVATE EVIDENCE AUDITS
+
+The complete private record supports more checks than the curated public
+edition. Audit a restored copy with its original dependency layout available;
+do not alter sealed inputs to make a path or identity check pass. The final
+auditors return a dictionary and do not run a benchmark or load an NPU model.
+For example, from the project root of a complete private restoration:
+
+python3 -B - <<'PY'
+import json
+from efficiency.cpu_compare_audit import audit
+result = audit('runs/completion-cpu-20261006T120615Z-compare')
+print(json.dumps(result, indent=2))
+raise SystemExit(0 if result['passed'] else 1)
+PY
+
+GPU and NPU equivalents are efficiency.completion_gpu_audit.audit and
+efficiency.completion_npu_audit.audit. Their final run paths are recorded in
+COMPLETION-RESULTS.txt. These checks can be expensive because the private raw
+record is large. A failed audit is a failed audit; a missing omitted artifact
+does not justify bypassing the check and reporting success.
+
+An audit passing means its stated integrity and reconstruction checks passed.
+It does not mean the candidate qualified scientifically. Conversely, the final
+CPU/GPU/NPU negative decisions are preserved outcomes, not software-test failures.
+
+7. BEFORE ANY NEW HARDWARE RESEARCH
+
+No new measurement is required to read, publish or statistically reproduce this
+completed work. A future study needs a separate proposal, fresh fixtures and
+output directories, explicit gates, a frozen implementation, compatible runtime,
+and its own authorized accounting. Preserve the existing cumulative ledger and
+identity/journal/lock sidecars. Do not omit retry lineage to reset a time budget.
+
+The completion family used a four-hour cumulative CPU comparison cap and
+separate two-hour development/two-hour confirmation buckets for GPU, NPU, cache
+and combined tracks. NPU diagnosis shared its development allowance. Setup,
+authentication, cooldown and cleanup counted; buckets were not transferable.
+Only infrastructure failures could justify an explicitly linked retry within
+the remaining allowance. Scientific rejection closed the candidate. Failed
+prerequisites left dependent stages unrun. There is no automatic retry chain.
+
+The Pi supervisor uses an experiment lock, bounded owned processes, thermal and
+memory checks and a temporary governor lease with cleanup. Hardware services
+may require an available desktop authorization prompt. Do not bypass those
+protections or invoke internal service entry points directly. The recorded
+governor was restored to ondemand. No qualified preset exists to apply from this
+roadmap, and its unspent time is not permission to start another candidate.
+
+For troubleshooting, first distinguish a dependency/path error, an incomplete
+infrastructure attempt, a numerical or answer-quality failure, and a scientific
+gate rejection. Keep their evidence and meanings separate. That distinction is
+part of reproducing the experiment accurately.

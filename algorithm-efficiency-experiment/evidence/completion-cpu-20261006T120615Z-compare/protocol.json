@@ -1,0 +1,121 @@
+{
+  "version": "cpu-compare-v1",
+  "blocks": 256,
+  "max_seconds": 14400,
+  "cleanup_seconds": 120,
+  "pilot_blocks": 1,
+  "pilot_margin": 1.2,
+  "configurations": [
+    "baseline",
+    "candidate"
+  ],
+  "configuration_policies": {
+    "baseline": {
+      "id": "baseline",
+      "governor": "ondemand",
+      "binding": "default",
+      "waiting": "default"
+    },
+    "candidate": {
+      "id": 5,
+      "governor": "performance",
+      "binding": "bound",
+      "waiting": "passive"
+    }
+  },
+  "openmp": {
+    "clear_prefixes": [
+      "OMP_",
+      "GOMP_"
+    ],
+    "baseline": {},
+    "candidate": {
+      "GOMP_SPINCOUNT": "0",
+      "OMP_DYNAMIC": "FALSE",
+      "OMP_PLACES": "{0},{1},{2},{3}",
+      "OMP_PROC_BIND": "CLOSE",
+      "OMP_WAIT_POLICY": "PASSIVE"
+    }
+  },
+  "cells": [
+    {
+      "cell_id": "stream-n128-b1",
+      "mode": "stream",
+      "n": 128,
+      "b": 1,
+      "d": 64,
+      "cpu": "native1",
+      "gpu": "C6"
+    },
+    {
+      "cell_id": "stream-n128-b4",
+      "mode": "stream",
+      "n": 128,
+      "b": 4,
+      "d": 64,
+      "cpu": "native1",
+      "gpu": "C6"
+    },
+    {
+      "cell_id": "stream-n512-b1",
+      "mode": "stream",
+      "n": 512,
+      "b": 1,
+      "d": 64,
+      "cpu": "native1",
+      "gpu": "C4"
+    },
+    {
+      "cell_id": "stream-n512-b4",
+      "mode": "stream",
+      "n": 512,
+      "b": 4,
+      "d": 64,
+      "cpu": "native4",
+      "gpu": "C6"
+    },
+    {
+      "cell_id": "stream-n1024-b1",
+      "mode": "stream",
+      "n": 1024,
+      "b": 1,
+      "d": 64,
+      "cpu": "native1",
+      "gpu": "C4"
+    },
+    {
+      "cell_id": "stream-n1024-b4",
+      "mode": "stream",
+      "n": 1024,
+      "b": 4,
+      "d": 64,
+      "cpu": "native4",
+      "gpu": "C6"
+    }
+  ],
+  "cpu_arms": [
+    "single_a",
+    "single_b",
+    "batch_a",
+    "batch_b"
+  ],
+  "repeats": 3,
+  "batch_calls": 16,
+  "configuration_order": "alternate each paired block",
+  "arm_order": "all 24 permutations per 8 blocks; identical between configurations",
+  "equivalence_interval": [
+    0.95,
+    1.05
+  ],
+  "minimum_speedup": 1.1,
+  "max_shape_slowdown": 1.05,
+  "atol": 1e-05,
+  "rtol": 0.0001,
+  "bootstrap_seed": 20261006,
+  "bootstrap_samples": 10000,
+  "bootstrap_unit": "whole paired blocks; average repeats and duplicate controls per shape; equal shapes",
+  "timing": "submission through validated result; initialization reported separately",
+  "retry_policy": "no automatic retries; infrastructure only with fresh fixtures within cumulative allowance",
+  "scope": "six streaming attention shapes; individual requests and 16-call batches",
+  "defaults_changed": false
+}

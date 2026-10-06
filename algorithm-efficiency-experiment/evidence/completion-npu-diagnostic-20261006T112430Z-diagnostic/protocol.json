@@ -1,0 +1,81 @@
+{
+  "version": "completion-npu-v1",
+  "track": "npu",
+  "stage": "diagnostic",
+  "blocks": 8,
+  "development_seconds": 7200,
+  "confirmation_seconds": 7200,
+  "diagnostic_charged_to": "develop",
+  "cleanup_seconds": 120,
+  "pilot_margin": 1.2,
+  "sizes": [
+    128,
+    512,
+    1024
+  ],
+  "turns": 4,
+  "diagnostic_arms": [
+    "full_table_actual_history",
+    "full_table_independent",
+    "selected_fact_actual_history",
+    "selected_fact_independent"
+  ],
+  "diagnostic_stop_condition": "punctuation",
+  "diagnostic_only": true,
+  "model_sha256": "1129f5f8384e4e45c5890104dc4ec1aee77e800ce1484ddc3aa942399aada425",
+  "runtime": "5.1.1",
+  "parameters": {
+    "temperature": 0.699999988079071,
+    "top_p": 0.800000011920929,
+    "top_k": 20,
+    "frequency_penalty": 1.0,
+    "max_generated_tokens": 32,
+    "do_sample": false,
+    "seed": 12345
+  },
+  "bindings": {
+    "bos_token": "<|begin_of_text|>",
+    "eos_token": "<|eot_id|>",
+    "date_string": "03 Oct 2026",
+    "tools": null
+  },
+  "original_system": "Answer using the reference facts. Keep answers to one word.",
+  "native_stops": [
+    "<|end_of_text|>",
+    "<|eom_id|>",
+    "<|eot_id|>"
+  ],
+  "extra_stops": [
+    ".",
+    "\n"
+  ],
+  "revised_policy": null,
+  "sizing": "largest original-control first prompt at or below target; identical complete table in every matched arm",
+  "history": "all actual previous user prompts and model assistant bodies; never corrected answers",
+  "independent": "fresh complete question with no earlier user or assistant messages",
+  "selected_fact": "CPU selects only the queried input fact; model answer remains raw diagnostic output",
+  "context_policy": "full_rebuild_each_turn",
+  "scoring": "unchanged strict whole-answer rubric",
+  "qualifying_task": "full_table_actual_history",
+  "candidate_count_limit": 1,
+  "development_gate": {
+    "planned": 96,
+    "valid": 96,
+    "correct": 92,
+    "per_size": 29,
+    "contracts": 0
+  },
+  "confirmation_gate": {
+    "planned": 192,
+    "valid": 192,
+    "correct": 183,
+    "per_size": 58,
+    "contracts": 0,
+    "min_gain": 0.05
+  },
+  "bootstrap_seed": 20261006,
+  "bootstrap_samples": 10000,
+  "bootstrap_unit": "paired whole blocks",
+  "control": "unchanged native-stop full-table actual-history dialogue",
+  "defaults_changed": false
+}

@@ -1,0 +1,168 @@
+{
+  "version": "completion-gpu-v1",
+  "track": "gpu",
+  "stage": "develop",
+  "blocks": 8,
+  "stage_max_seconds": 7200,
+  "track_max_seconds": 14400,
+  "cleanup_seconds": 120,
+  "pilot_blocks": 1,
+  "pilot_margin": 1.2,
+  "repeats": 3,
+  "cells": [
+    {
+      "cell_id": "stream-n128-d64-b1",
+      "n": 128,
+      "d": 64,
+      "b": 1,
+      "mode": "stream",
+      "cpu": "native1",
+      "gpu": "C6"
+    },
+    {
+      "cell_id": "stream-n128-d64-b16",
+      "n": 128,
+      "d": 64,
+      "b": 16,
+      "mode": "stream",
+      "cpu": "native4",
+      "gpu": "C6"
+    },
+    {
+      "cell_id": "stream-n128-d128-b1",
+      "n": 128,
+      "d": 128,
+      "b": 1,
+      "mode": "stream",
+      "cpu": "native1",
+      "gpu": "C6"
+    },
+    {
+      "cell_id": "stream-n128-d128-b16",
+      "n": 128,
+      "d": 128,
+      "b": 16,
+      "mode": "stream",
+      "cpu": "native4",
+      "gpu": "C6"
+    },
+    {
+      "cell_id": "stream-n512-d64-b1",
+      "n": 512,
+      "d": 64,
+      "b": 1,
+      "mode": "stream",
+      "cpu": "native1",
+      "gpu": "C6"
+    },
+    {
+      "cell_id": "stream-n512-d64-b16",
+      "n": 512,
+      "d": 64,
+      "b": 16,
+      "mode": "stream",
+      "cpu": "native4",
+      "gpu": "C6"
+    },
+    {
+      "cell_id": "stream-n512-d128-b1",
+      "n": 512,
+      "d": 128,
+      "b": 1,
+      "mode": "stream",
+      "cpu": "native1",
+      "gpu": "C6"
+    },
+    {
+      "cell_id": "stream-n512-d128-b16",
+      "n": 512,
+      "d": 128,
+      "b": 16,
+      "mode": "stream",
+      "cpu": "native4",
+      "gpu": "C6"
+    },
+    {
+      "cell_id": "stream-n1024-d64-b1",
+      "n": 1024,
+      "d": 64,
+      "b": 1,
+      "mode": "stream",
+      "cpu": "native1",
+      "gpu": "C6"
+    },
+    {
+      "cell_id": "stream-n1024-d64-b16",
+      "n": 1024,
+      "d": 64,
+      "b": 16,
+      "mode": "stream",
+      "cpu": "native4",
+      "gpu": "C6"
+    },
+    {
+      "cell_id": "stream-n1024-d128-b1",
+      "n": 1024,
+      "d": 128,
+      "b": 1,
+      "mode": "stream",
+      "cpu": "native1",
+      "gpu": "C6"
+    },
+    {
+      "cell_id": "stream-n1024-d128-b16",
+      "n": 1024,
+      "d": 128,
+      "b": 16,
+      "mode": "stream",
+      "cpu": "native4",
+      "gpu": "C6"
+    }
+  ],
+  "labels": [
+    "cpu",
+    "cpu_duplicate",
+    "gpu",
+    "stream64"
+  ],
+  "cpu_policy": 5,
+  "gpu_backend": "C6",
+  "stream64_variant": 4,
+  "original_gpu_variant": 0,
+  "atol": 1e-05,
+  "rtol": 0.0001,
+  "minimum_speedup": 1.1,
+  "equivalence_interval": [
+    0.95,
+    1.05
+  ],
+  "maximum_shape_slowdown": 1.05,
+  "bootstrap_samples": 10000,
+  "bootstrap_seed": 20261007,
+  "bootstrap_unit": "whole paired fixture blocks; average three repetitions per shape; equally weighted shapes",
+  "ordering": "all 24 arm permutations per eight blocks, independently shuffled per shape/cycle",
+  "selection": "GPU only where development per-shape speedup >=1.10 and lower95% >1; all other routes CPU; aggregate policy gate required",
+  "confirmation": "same complete matrix with independently generated fixtures and frozen development routing",
+  "timing": "submission through validated result including transport, transfers and synchronization; initialization separate",
+  "routing_estimand": "Frozen shape-specific route estimate assembled from measured complete native calls; unchanged CPU shapes use their paired CPU baseline; dynamic dispatcher overhead is unmeasured",
+  "batching": "tensor B consists of independent sequences in one native call; no sequential-call batching or submission redesign",
+  "basis": {
+    "historical_n1024_d64_b4_ms": {
+      "cpu": 47.18,
+      "old_gpu": 3740.01,
+      "stream64": 1178.2
+    },
+    "reason": "increase independent tensor sequences and feature dimension at the three established sequence lengths; CPU reference is the declared route, not a globally optimal thread count",
+    "native_bounds": {
+      "n": 4096,
+      "d": 128,
+      "b": 16,
+      "workspace_bytes": 536870912
+    },
+    "largest_matrix_workspace_bytes": 109248512,
+    "conservative_largest_old_gpu_seconds": 29.92008,
+    "excluded": "N2048/B16/D128 extrapolates to about 120 seconds per old-GPU call and cannot fit the full confirmation matrix; N4096/B16 additionally exceeds the native workspace guard",
+    "forecast": "saved-timing extrapolation is a planning bound, not a substitute for the frozen pilot"
+  },
+  "defaults_changed": false
+}
