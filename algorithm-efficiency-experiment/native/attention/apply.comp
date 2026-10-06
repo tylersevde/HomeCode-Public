@@ -1,0 +1,28 @@
+#version 450
+#ifndef TILE
+#define TILE 8
+#endif
+#ifndef CAUSAL
+#define CAUSAL 0
+#endif
+layout(local_size_x=TILE,local_size_y=TILE) in;
+layout(set=0,binding=4,std430) readonly buffer Values {float v[];};
+layout(set=0,binding=5,std430) readonly buffer Scores {float scores[];};
+layout(set=0,binding=6,std430) buffer Outputs {float output_values[];};
+layout(push_constant) uniform Shape {uint n;uint d;uint batch;uint first;uint rows;} s;
+shared float a[TILE][TILE];
+shared float z[TILE][TILE];
+void main() {
+    uint lx=gl_LocalInvocationID.x,ly=gl_LocalInvocationID.y;
+    uint row=s.first+gl_WorkGroupID.y*TILE+ly,col=gl_WorkGroupID.x*TILE+lx,b=gl_WorkGroupID.z;
+    uint limit=s.first+s.rows;float total=0;
+    uint useful=(CAUSAL==2)?min(limit,s.first+(gl_WorkGroupID.y+1)*TILE):limit;
+    for(uint base=0;base<useful;base+=TILE) {
+        a[ly][lx]=(row<limit && base+lx<limit && (CAUSAL!=2 || base+lx<=row))?scores[(b*s.n+row)*s.n+base+lx]:0;
+        z[ly][lx]=(base+ly<limit && col<s.d)?v[(b*s.n+base+ly)*s.d+col]:0;
+        barrier();
+        for(uint j=0;j<TILE;j++) total+=a[ly][j]*z[j][lx];
+        barrier();
+    }
+    if(row<limit && col<s.d) output_values[(b*s.n+row)*s.d+col]=total;
+}

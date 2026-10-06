@@ -1,0 +1,204 @@
+PUBLIC DERIVATIVE — Historical run/campaign/checkpoint paths below refer to the private archive. Released final evidence is under evidence/; consult PUBLICATION-MANIFEST.json for exact public coverage.
+
+COMPLETION RESULTS — 6 OCTOBER 2026 UTC
+Project: algorithm-efficiency-experiment
+
+Scientific work: COMPLETE with documented negative outcomes and dependency stops.
+Final independent USB checkpoint: VERIFIED after actual restoration; certified 2026-10-06T17:25:42.471260+00:00.
+No new policy qualified, no preset was exported, and application defaults are unchanged.
+
+The bounded roadmap is resolved. CPU batch performance met its endpoint gate,
+but the complete CPU comparison did not qualify. Stream64 improved the GPU
+implementation without beating CPU on the tested range. The one revised NPU
+policy completed reliably but failed strict full-table accuracy. Dependent
+confirmations, cache and combined work were not run; they have no new performance
+result. Scientific closure must not be confused with completed backup certification.
+
+1. CPU COMPARISON
+
+Campaign: campaigns/completion-cpu-20261006T120615Z/
+Run/report: runs/completion-cpu-20261006T120615Z-compare/report.html
+Evidence: the run's summary.json, validation.json, config.json, protocol.json,
+raw CPU events, telemetry, source snapshot, figures/CSV and checksums.json;
+the campaign's final-validation.json and budget-finalization.json.
+
+All 256 paired main blocks and the excluded pilot completed. Native numerical
+correctness passed. The sixteen-call batch endpoint qualified at speedup
+1.1904530968147335, paired 95% interval [1.183801798749645, 1.1973401880227976].
+The single-request endpoint measured 1.2122292669161894, interval
+[1.1877927808542437, 1.2375647701555528], but its baseline duplicate controls
+failed the required [0.95, 1.05] equivalence containment at N512/B4 and N1024/B4.
+Their intervals were [0.9917682581391661, 1.1748498919490753] and
+[0.897798828908681, 0.9933082727252065], respectively.
+
+Disposition: rejected for overall promotion because BOTH endpoints were required.
+The batch finding is retained; it does not authorize a qualified all-endpoint
+preset. No preset.json was exported. This does not erase earlier policy-5
+numerical correctness/repeatability confirmation or prove the candidate is slower.
+Scope is the six frozen streaming-attention shapes and the measured call patterns.
+
+Preserved infrastructure attempts:
+  campaigns/cpu-baseline-comparison-20261005T155600Z/final-validation.json
+  campaigns/completion-cpu-20261006T111949Z/final-validation.json
+Their authentication time remains charged. They are not scientific negative runs.
+
+2. GPU DEVELOPMENT
+
+Campaign: campaigns/completion-gpu-develop-20261006T145314Z/
+Run/report: runs/completion-gpu-develop-20261006T145314Z-develop/report.html
+
+The complete twelve-shape matrix covered N=128/512/1024, D=64/128 and tensor
+batch=1/16. Stream64 was 3.44753179879827 times faster than the earlier GPU
+implementation, paired 95% interval [3.4400043599178804, 3.4544842021959563].
+It nevertheless took 8.402516429558752 to 21.154191621307405 times the CPU time
+over the tested shapes. Numerical correctness passed, but duplicate CPU controls
+also failed the stability gate. No GPU route qualified; all twelve routes are CPU.
+
+Disposition: rejected development; GPU confirmation was not run. These results
+apply to the measured range and declared CPU routes, not every possible GPU
+workload. Dynamic dispatcher overhead was unmeasured. The complete native-call
+timings include transport, transfers, synchronization and validation.
+
+3. NPU DIAGNOSIS AND ONE REVISED FULL-TABLE POLICY
+
+Diagnostic report:
+  runs/completion-npu-diagnostic-20261006T112430Z-diagnostic/report.html
+Revised-policy development report:
+  runs/completion-npu-develop-20261006T155952Z-develop/report.html
+Campaign:
+  campaigns/completion-npu-develop-20261006T155952Z/
+
+Diagnostic strict correctness, always divided by 96 planned answers:
+  Full table, actual history:       44/96
+  Full table, independent:          80/96
+  Selected fact, actual history:    55/96
+  Selected fact, independent:       94/96
+Simplified/independent arms were diagnostic and could not qualify the original
+full-table, four-turn task. They informed one frozen revised system instruction.
+
+The revised full-table actual-history policy produced 96/96 valid completions,
+zero contract failures, and 64/96 strictly correct answers (66.67%). Per-size
+correctness was 22/32, 19/32 and 23/32 for the control-sized 128/512/1024 groups.
+Development required 96/96 valid, at least 92/96 strictly correct, at least
+29/32 correct at EACH size, and no contract failure. The candidate failed accuracy.
+The longer candidate instruction did not shrink the common table; actual prompt
+sizes may exceed the original-control group labels.
+
+The unchanged native-stop control scored 3/96 strictly correct and 24/96 valid;
+missing/quarantined turns remain in the planned denominator. A large improvement
+over this weak control does not replace the absolute qualification requirements.
+
+Disposition: rejected qualification-development; no additional revised candidate
+and no NPU confirmation. This is a bounded result for this model, task and policy,
+not a general claim that NPU inference is unusable. No CPU correction counted as
+a raw NPU success.
+
+4. STAGES NOT RUN
+
+GPU confirmation: development gate failed.
+NPU confirmation: revised full-table development accuracy gate failed.
+Cache development and confirmation: full-table NPU qualification gate failed.
+Combined development and confirmation: full-table NPU qualification gate failed.
+
+All these stages remain explicitly unmeasured under this roadmap. Earlier cache
+or combined evidence does not substitute for new qualification. The conditional
+API/design outline is preparation only. No time was transferred from closed stages,
+and unused allowance is not a reason to reopen a rejected scientific candidate.
+
+5. EXACT CUMULATIVE BUDGET SNAPSHOT
+
+Authority: runs/.completion-budget.json and its identity/journal/lock sidecars.
+Family: d434b10a-b15c-4265-8ef1-e5c419bb9aa1
+Recorded ledger digest: b6c07b10b6947c51d2cfc1dfd4b24a7f36adb5bf85cb58226d8420e08e46070c
+All five reservations are finalized; there is no active reservation.
+
+Bucket                Cap seconds  Charged seconds       Unspent seconds
+CPU compare           14400        9583.107278851996      4816.892721148004
+GPU develop            7200        3644.4632362799894     3555.5367637200106
+GPU confirm            7200           0.0                7200.0
+NPU develop            7200        4171.977352654969      3028.022647345031
+NPU confirm            7200           0.0                7200.0
+Cache develop          7200           0.0                7200.0
+Cache confirm          7200           0.0                7200.0
+Combined develop       7200           0.0                7200.0
+Combined confirm       7200           0.0                7200.0
+TOTAL                 72000       17399.547867786954     54600.452132213046
+
+CPU charges include the original 5 October startup (132.87611606300925), the
+6 October authentication failure (131.85488570400048), and the completed retry
+(9318.376277084986). NPU development includes diagnosis (2393.713573957997) and
+qualification-development (1778.2637786969717). Charges include setup and cleanup;
+they are not just kernel/model timing and are not overall calendar elapsed time.
+Software preparation, offline audits and archiving are outside research buckets.
+
+6. VALIDATION, RESTORATION AND REPRODUCTION
+
+The completed CPU, GPU, diagnostic NPU and revised-policy NPU evidence audits
+passed. An audit passing establishes faithful evidence and decision reconstruction;
+it does not turn a scientifically rejected candidate into an accepted policy.
+The temporary CPU governor was restored to ondemand; application defaults were
+not changed. Historical sealed evidence and both authentication failures remain.
+
+Project implementation: 589 passing regression tests, frozen before measurement.
+Receipt:
+  [HOME]/Documents/completion-implementation-20261006T105512Z/implementation-validation.json
+Checkpoint tooling: 47 separate passing disposable checks (21 verifier cases and
+26 orchestration tests), with no hardware calls or project modifications.
+Receipt:
+  [HOME]/Documents/completion-checkpoint-tools-20261006/HELPER-TESTS.json
+These helper tests are not an actual restoration of the final complete package.
+
+Each measured run preserves its frozen config/protocol, fixture namespace,
+executed source, model/native/runtime identity, raw observations, report and seal.
+Use its existing report for the exact workload and decision, and its archived
+source/config for reproduction context. Audit evidence read-only; do not edit a
+sealed record or rerun into it. A fresh fixture dataset is required for new
+scientific evidence; replaying frozen seeds is replication. The original roadmap
+is preserved in the implementation source-before receipt. This live summary and
+the dated execution note supersede its earlier prospective status.
+
+Sealed closure evidence index (independent reviews passed):
+  campaigns/completion-closure-20261006T163315Z/
+Live status:
+  COMPLETION-STATUS.json
+
+7. FINAL INDEPENDENT BACKUP — VERIFIED
+
+Checkpoint: 20261006T164951Z
+Independent USB destination: [INDEPENDENT_CHECKPOINT_ROOT]/algorithm-efficiency-experiment-20261006T164951Z
+Authoritative external receipt: [INDEPENDENT_CHECKPOINT_ROOT]/algorithm-efficiency-experiment-20261006T164951Z/BACKUP-RECEIPT.json
+Archive packaged UTC: 2026-10-06T17:06:57.749127+00:00
+Actual restore verified UTC: 2026-10-06T17:22:02.816935+00:00
+Backup certified UTC: 2026-10-06T17:25:42.471260+00:00
+Restored from USB into: [DEVELOPMENT_ROOT]/experiment-backups/.restore-check-20261006T164951Z
+Verified exact inventory entries: 19924
+Verified canonical run/campaign seals: 74
+Approved closure seal SHA256: 870fe0d4309b6980381af4e42b775d7f5a6f08784c61875426a2ebc79129d9d5
+Receipt SHA256: f6038c0e0c1a50fe6eb84e3c0cc69927bd1f7f5e4660a70805fe37df439f760a
+Package manifest SHA256: 8daa0ba831f1bd32289d89516a1dd0aefec3b3ac98066410726c18b3f6e4e2d4
+Source inventory SHA256: 533ef3fbb52e2cb28dfff3fbed8f8a1ab06c218478ce4ed1a85278c642cb9e26
+
+The complete USB package passed checksum verification and an actual restoration
+into a new empty SSD Linux directory. Restored inventory and canonical seals
+passed. The verified package contains the current project/evidence, cumulative
+budget sidecars, verified models/provenance and implementation/service receipts.
+Quarantine stays excluded. Earlier checkpoints and sealed evidence are unchanged.
+The copy was complete by the certification time above; a separate exact copy-end
+timestamp is not claimed. Restore details, including whether its temporary tree
+was removed afterward, are recorded in the authoritative receipt.
+
+The archive intentionally preserves the earlier BUILDING/pending live documents:
+those bytes existed before certification. The external receipt certifies what
+happened later. These seven live-document updates are separate from the immutable
+archive, and their before/after hashes are recorded in:
+  [HOME]/Documents/completion-checkpoint-work-20261006T164951Z/LIVE-HANDOFF-UPDATE.json
+
+Operator-alert delivery receipts record successful visual and audio command
+exits at the CPU retry and GPU authentication prompts; the GPU reminder also
+completed successfully. These are delivery-command records, not a claim that
+the operator saw or heard them. Preserved receipts:
+  [HOME]/Documents/completion-implementation-20261006T105512Z/cpu-retry-alert-delivery.json
+  [HOME]/Documents/completion-implementation-20261006T105512Z/gpu-develop-alert-delivery.json
+
+Scientific work and the independent-backup handoff are complete. No new policy
+qualified, no default changed, and no stopped dependency branch was measured.

@@ -1,0 +1,77 @@
+{
+  "track": "npu",
+  "stage": "diagnostic",
+  "complete": true,
+  "selected": null,
+  "accepted": false,
+  "scientific_qualification": false,
+  "diagnostic_only": true,
+  "decision": "diagnostic_complete",
+  "metrics": [
+    {
+      "label": "full_table_actual_history",
+      "planned": 96,
+      "observed": 83,
+      "valid": 70,
+      "correct": 44,
+      "per_size_correct": {
+        "128": 20,
+        "512": 9,
+        "1024": 15
+      },
+      "contracts": 0,
+      "accuracy": 0.4583333333333333,
+      "meets_numeric_threshold": false,
+      "qualified": false
+    },
+    {
+      "label": "full_table_independent",
+      "planned": 96,
+      "observed": 96,
+      "valid": 94,
+      "correct": 80,
+      "per_size_correct": {
+        "128": 30,
+        "512": 27,
+        "1024": 23
+      },
+      "contracts": 0,
+      "accuracy": 0.8333333333333334,
+      "meets_numeric_threshold": false,
+      "qualified": false
+    },
+    {
+      "label": "selected_fact_actual_history",
+      "planned": 96,
+      "observed": 94,
+      "valid": 89,
+      "correct": 55,
+      "per_size_correct": {
+        "128": 21,
+        "512": 14,
+        "1024": 20
+      },
+      "contracts": 0,
+      "accuracy": 0.5729166666666666,
+      "meets_numeric_threshold": false,
+      "qualified": false
+    },
+    {
+      "label": "selected_fact_independent",
+      "planned": 96,
+      "observed": 96,
+      "valid": 96,
+      "correct": 94,
+      "per_size_correct": {
+        "128": 32,
+        "512": 30,
+        "1024": 32
+      },
+      "contracts": 0,
+      "accuracy": 0.9791666666666666,
+      "meets_numeric_threshold": true,
+      "qualified": false
+    }
+  ],
+  "defaults_changed": false
+}

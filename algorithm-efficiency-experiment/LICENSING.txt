@@ -1,0 +1,48 @@
+LICENSING AND REUSE
+Publication date: 6 October 2026
+Project owner: Tyler Sevde
+
+Tyler Sevde authorizes distribution of the project contributions under the
+following licenses, to the extent those contributions are subject to rights
+that the project owner can license. AI assistance does not create a claim to
+third-party rights or establish the copyright status of every generated work.
+
+1. Project source code, tests, scripts, shaders and publication/recovery tools:
+   MIT, in LICENSE-CODE.txt. This includes the original supplied demonstration
+   and this publication's explicitly recorded portability adaptation.
+2. Project-authored documentation, research paper, instructions, credits,
+   experimental tables, figures, recorded data and derived public data:
+   Creative Commons Attribution 4.0 International, in LICENSE-DOCS-DATA.txt.
+   The license applies to copyright and applicable database rights; individual
+   facts need not be copyrightable. Attribute Tyler Sevde and this experiment,
+   retain the AI-assistance credit, link the license and identify modifications.
+3. reference/algorithm_efficiency_experiment.zip is an unchanged historical
+   container. Its Python member follows item 1; its readme and results JSON
+   follow item 2. Licensing is recorded outside the ZIP so its hash is intact.
+4. Upstream software, models, license texts and quoted material retain their
+   own terms. See THIRD-PARTY-NOTICES.txt and third-party-licenses/. A model or
+   runtime does not become MIT or CC BY merely because the experiment uses it.
+
+These licenses permit free sharing and adaptation, including commercial reuse,
+subject to their terms. "Free and fair use" expresses the owner's invitation;
+it is not a replacement legal license or a promise about statutory fair use.
+No additional restriction on lawful reuse is intended. Names and marks remain
+their owners'; no endorsement by OpenAI, Meta, Hailo or Raspberry Pi is claimed.
+
+Public edition: source, original demo, documentation and selected traceable data;
+no model weights, HEFs, opaque model-state files, private operational records or
+operating-system/Python installations. Full owner-controlled backup: complete
+experiment plus explicitly mapped verified model artifacts and evidence, with
+applicable model terms preserved. Distribution beyond this scope requires
+checking those third-party terms.
+
+Suggested attribution:
+"Algorithm Efficiency Experiment, Tyler Sevde (2026). Original demonstration
+attributed by the owner to ChatGPT Astra Max via iPadOS; subsequent planning,
+implementation, experimentation and report drafting assisted by ChatGPT Codex,
+identified by the owner as ChatGPT Codex Astra Ultra. Code: MIT. Project
+documentation/data: CC BY 4.0. See CREDITS.txt and publication manifests."
+
+License references:
+https://opensource.org/license/mit
+https://creativecommons.org/licenses/by/4.0/

@@ -1,0 +1,27 @@
+#version 450
+#ifndef GROUP
+#define GROUP 64
+#endif
+#ifndef CAUSAL
+#define CAUSAL 0
+#endif
+layout(local_size_x=GROUP) in;
+layout(set=0,binding=5,std430) buffer Scores {float scores[];};
+layout(push_constant) uniform Shape {uint n;uint d;uint batch;uint first;uint rows;} s;
+shared float partial[GROUP];
+void main() {
+    uint lane=gl_LocalInvocationID.x,row=s.first+gl_WorkGroupID.x,b=gl_WorkGroupID.y;
+    uint offset=(b*s.n+row)*s.n,limit=s.first+s.rows;
+    if(CAUSAL==2)limit=row+1;
+    float value=-1.0/0.0;
+    for(uint i=lane;i<limit;i+=GROUP) value=max(value,scores[offset+i]);
+    partial[lane]=value; barrier();
+    for(uint width=GROUP/2;width>0;width/=2) {if(lane<width)partial[lane]=max(partial[lane],partial[lane+width]);barrier();}
+    float maximum=partial[0],sum=0;
+    for(uint i=lane;i<limit;i+=GROUP) {float e=exp(scores[offset+i]-maximum);scores[offset+i]=e;sum+=e;}
+    // Preserve maximum until every invocation has read it, before reusing shared storage.
+    barrier(); partial[lane]=sum; barrier();
+    for(uint width=GROUP/2;width>0;width/=2) {if(lane<width)partial[lane]+=partial[lane+width];barrier();}
+    float denominator=partial[0];
+    for(uint i=lane;i<limit;i+=GROUP) scores[offset+i]/=denominator;
+}

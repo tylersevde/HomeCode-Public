@@ -1,0 +1,447 @@
+{
+  "created_utc": "2026-10-01T13:34:17.275391+00:00",
+  "scope": "One synthetic, single-layer causal attention computation; fixed inputs and weights; float64; CPU; one configured BLAS thread.",
+  "limitations": [
+    "Established optimizations against explicit uncached references, not a novel discovery.",
+    "Not a trained LLM, end-to-end language generation, or a measurement of model intelligence.",
+    "No recursive improvement loop, self-modification, or universal 5x-per-cycle claim.",
+    "All weights and inputs are identical across variants; no changes in precision or added hardware.",
+    "KV caching trades persistent storage for reduced recomputation.",
+    "Timing depends on machine, numerical library and workload; no power measurement.",
+    "Research, code generation and validation costs are not amortized into inference timings."
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "numpy": "2.3.5",
+    "blas_threads_requested": 1,
+    "numpy_build_configuration": "Build Dependencies:\n  blas:\n    detection method: pkgconfig\n    found: true\n    include directory: /opt/_internal/cpython-3.12.12/lib/python3.12/site-packages/scipy_openblas64/include\n    lib directory: /opt/_internal/cpython-3.12.12/lib/python3.12/site-packages/scipy_openblas64/lib\n    name: scipy-openblas\n    openblas configuration: OpenBLAS 0.3.30  USE64BITINT DYNAMIC_ARCH NO_AFFINITY\n      Haswell MAX_THREADS=64\n    pc file directory: /project/.openblas\n    version: 0.3.30\n  lapack:\n    detection method: pkgconfig\n    found: true\n    include directory: /opt/_internal/cpython-3.12.12/lib/python3.12/site-packages/scipy_openblas64/include\n    lib directory: /opt/_internal/cpython-3.12.12/lib/python3.12/site-packages/scipy_openblas64/lib\n    name: scipy-openblas\n    openblas configuration: OpenBLAS 0.3.30  USE64BITINT DYNAMIC_ARCH NO_AFFINITY\n      Haswell MAX_THREADS=64\n    pc file directory: /project/.openblas\n    version: 0.3.30\nCompilers:\n  c:\n    commands: cc\n    linker: ld.bfd\n    name: gcc\n    version: 14.2.1\n  c++:\n    commands: c++\n    linker: ld.bfd\n    name: gcc\n    version: 14.2.1\n  cython:\n    commands: cython\n    linker: cython\n    name: cython\n    version: 3.2.1\nMachine Information:\n  build:\n    cpu: x86_64\n    endian: little\n    family: x86_64\n    system: linux\n  host:\n    cpu: x86_64\n    endian: little\n    family: x86_64\n    system: linux\nPython Information:\n  path: /tmp/build-env-aw1mwcap/bin/python\n  version: '3.12'\nSIMD Extensions:\n  baseline:\n  - SSE\n  - SSE2\n  - SSE3\n  found:\n  - SSSE3\n  - SSE41\n  - POPCNT\n  - SSE42\n  - AVX\n  - F16C\n  - FMA3\n  - AVX2\n  - AVX512F\n  - AVX512CD\n  - AVX512_SKX\n  - AVX512_CLX\n  - AVX512_CNL\n  - AVX512_ICL\n  not found:\n  - AVX512_KNL\n  - AVX512_KNM\n  - AVX512_SPR\n\n"
+  },
+  "correctness_tolerances": {
+    "rtol": 1e-10,
+    "atol": 1e-10
+  },
+  "correctness_checks": [
+    {
+      "seed": 7,
+      "n": 1,
+      "d": 1,
+      "variant": "full_prefix_reference",
+      "max_absolute_error": 0.0
+    },
+    {
+      "seed": 7,
+      "n": 1,
+      "d": 1,
+      "variant": "latest_query_no_cache",
+      "max_absolute_error": 0.0
+    },
+    {
+      "seed": 7,
+      "n": 1,
+      "d": 1,
+      "variant": "cached_stream",
+      "max_absolute_error": 0.0
+    },
+    {
+      "seed": 7,
+      "n": 2,
+      "d": 8,
+      "variant": "full_prefix_reference",
+      "max_absolute_error": 0.0
+    },
+    {
+      "seed": 7,
+      "n": 2,
+      "d": 8,
+      "variant": "latest_query_no_cache",
+      "max_absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "seed": 7,
+      "n": 2,
+      "d": 8,
+      "variant": "cached_stream",
+      "max_absolute_error": 1.491862189340054e-16
+    },
+    {
+      "seed": 7,
+      "n": 17,
+      "d": 16,
+      "variant": "full_prefix_reference",
+      "max_absolute_error": 0.0
+    },
+    {
+      "seed": 7,
+      "n": 17,
+      "d": 16,
+      "variant": "latest_query_no_cache",
+      "max_absolute_error": 3.3306690738754696e-16
+    },
+    {
+      "seed": 7,
+      "n": 17,
+      "d": 16,
+      "variant": "cached_stream",
+      "max_absolute_error": 3.608224830031759e-16
+    },
+    {
+      "seed": 7,
+      "n": 64,
+      "d": 32,
+      "variant": "full_prefix_reference",
+      "max_absolute_error": 0.0
+    },
+    {
+      "seed": 7,
+      "n": 64,
+      "d": 32,
+      "variant": "latest_query_no_cache",
+      "max_absolute_error": 1.9984014443252818e-15
+    },
+    {
+      "seed": 7,
+      "n": 64,
+      "d": 32,
+      "variant": "cached_stream",
+      "max_absolute_error": 7.771561172376096e-16
+    },
+    {
+      "seed": 29,
+      "n": 1,
+      "d": 1,
+      "variant": "full_prefix_reference",
+      "max_absolute_error": 0.0
+    },
+    {
+      "seed": 29,
+      "n": 1,
+      "d": 1,
+      "variant": "latest_query_no_cache",
+      "max_absolute_error": 0.0
+    },
+    {
+      "seed": 29,
+      "n": 1,
+      "d": 1,
+      "variant": "cached_stream",
+      "max_absolute_error": 0.0
+    },
+    {
+      "seed": 29,
+      "n": 2,
+      "d": 8,
+      "variant": "full_prefix_reference",
+      "max_absolute_error": 0.0
+    },
+    {
+      "seed": 29,
+      "n": 2,
+      "d": 8,
+      "variant": "latest_query_no_cache",
+      "max_absolute_error": 2.7755575615628914e-17
+    },
+    {
+      "seed": 29,
+      "n": 2,
+      "d": 8,
+      "variant": "cached_stream",
+      "max_absolute_error": 3.3306690738754696e-16
+    },
+    {
+      "seed": 29,
+      "n": 17,
+      "d": 16,
+      "variant": "full_prefix_reference",
+      "max_absolute_error": 0.0
+    },
+    {
+      "seed": 29,
+      "n": 17,
+      "d": 16,
+      "variant": "latest_query_no_cache",
+      "max_absolute_error": 4.440892098500626e-16
+    },
+    {
+      "seed": 29,
+      "n": 17,
+      "d": 16,
+      "variant": "cached_stream",
+      "max_absolute_error": 8.881784197001252e-16
+    },
+    {
+      "seed": 29,
+      "n": 64,
+      "d": 32,
+      "variant": "full_prefix_reference",
+      "max_absolute_error": 0.0
+    },
+    {
+      "seed": 29,
+      "n": 64,
+      "d": 32,
+      "variant": "latest_query_no_cache",
+      "max_absolute_error": 6.800116025829084e-16
+    },
+    {
+      "seed": 29,
+      "n": 64,
+      "d": 32,
+      "variant": "cached_stream",
+      "max_absolute_error": 1.932481952238163e-15
+    },
+    {
+      "seed": 101,
+      "n": 1,
+      "d": 1,
+      "variant": "full_prefix_reference",
+      "max_absolute_error": 0.0
+    },
+    {
+      "seed": 101,
+      "n": 1,
+      "d": 1,
+      "variant": "latest_query_no_cache",
+      "max_absolute_error": 0.0
+    },
+    {
+      "seed": 101,
+      "n": 1,
+      "d": 1,
+      "variant": "cached_stream",
+      "max_absolute_error": 0.0
+    },
+    {
+      "seed": 101,
+      "n": 2,
+      "d": 8,
+      "variant": "full_prefix_reference",
+      "max_absolute_error": 0.0
+    },
+    {
+      "seed": 101,
+      "n": 2,
+      "d": 8,
+      "variant": "latest_query_no_cache",
+      "max_absolute_error": 4.440892098500626e-16
+    },
+    {
+      "seed": 101,
+      "n": 2,
+      "d": 8,
+      "variant": "cached_stream",
+      "max_absolute_error": 4.440892098500626e-16
+    },
+    {
+      "seed": 101,
+      "n": 17,
+      "d": 16,
+      "variant": "full_prefix_reference",
+      "max_absolute_error": 0.0
+    },
+    {
+      "seed": 101,
+      "n": 17,
+      "d": 16,
+      "variant": "latest_query_no_cache",
+      "max_absolute_error": 6.661338147750939e-16
+    },
+    {
+      "seed": 101,
+      "n": 17,
+      "d": 16,
+      "variant": "cached_stream",
+      "max_absolute_error": 8.881784197001252e-16
+    },
+    {
+      "seed": 101,
+      "n": 64,
+      "d": 32,
+      "variant": "full_prefix_reference",
+      "max_absolute_error": 0.0
+    },
+    {
+      "seed": 101,
+      "n": 64,
+      "d": 32,
+      "variant": "latest_query_no_cache",
+      "max_absolute_error": 1.3322676295501878e-15
+    },
+    {
+      "seed": 101,
+      "n": 64,
+      "d": 32,
+      "variant": "cached_stream",
+      "max_absolute_error": 1.7763568394002505e-15
+    }
+  ],
+  "benchmarks": [
+    {
+      "sequence_length": 128,
+      "hidden_dimension": 64,
+      "seed": 20261129,
+      "repeats": 7,
+      "times_ms": {
+        "full_prefix_reference": [
+          16.547436003747862,
+          14.3847880026442,
+          17.02459700027248,
+          14.950652999687009,
+          14.361193003423978,
+          14.570829000149388,
+          14.103121997322887
+        ],
+        "latest_query_no_cache": [
+          4.391586997371633,
+          4.262681999534834,
+          4.496135006775148,
+          4.624558998330031,
+          4.756998001539614,
+          4.3224920009379275,
+          4.102930004592054
+        ],
+        "cached_stream": [
+          1.7189770005643368,
+          1.9869420066243038,
+          1.7861489977804013,
+          1.7689630039967597,
+          1.7834250029409304,
+          1.804527004424017,
+          1.8112170000676997
+        ]
+      },
+      "median_ms": {
+        "full_prefix_reference": 14.570829000149388,
+        "latest_query_no_cache": 4.391586997371633,
+        "cached_stream": 1.7861489977804013
+      },
+      "max_absolute_error": {
+        "full_prefix_reference": 0.0,
+        "latest_query_no_cache": 1.2212453270876722e-15,
+        "cached_stream": 1.6653345369377348e-15
+      },
+      "speedup_cached_vs_full_prefix": 8.157678345007142,
+      "speedup_cached_vs_latest_query_no_cache": 2.4586901780472616,
+      "matrix_multiply_accumulate_counts": {
+        "full_prefix_reference": 191979520,
+        "latest_query_no_cache": 69214208,
+        "cached_stream": 2629632
+      },
+      "mac_reduction_cached_vs_latest_query_no_cache": 26.3208722741433,
+      "persistent_kv_cache_bytes": 131072
+    },
+    {
+      "sequence_length": 256,
+      "hidden_dimension": 64,
+      "seed": 20261257,
+      "repeats": 7,
+      "times_ms": {
+        "full_prefix_reference": [
+          100.77795300458092,
+          102.40697499830276,
+          102.88703999685822,
+          100.64874499948928,
+          103.85376699559856,
+          103.77694199996768,
+          99.84835099749034
+        ],
+        "latest_query_no_cache": [
+          14.886195000144653,
+          14.532841996697243,
+          14.330837002489716,
+          17.320244005532004,
+          14.094425001530908,
+          14.900303998729214,
+          16.766200002166443
+        ],
+        "cached_stream": [
+          4.205354998703115,
+          3.9308699997491203,
+          4.391096001199912,
+          4.700563004007563,
+          4.549150005914271,
+          4.2051290001836605,
+          4.5027399974060245
+        ]
+      },
+      "median_ms": {
+        "full_prefix_reference": 102.40697499830276,
+        "latest_query_no_cache": 14.886195000144653,
+        "cached_stream": 4.391096001199912
+      },
+      "max_absolute_error": {
+        "full_prefix_reference": 0.0,
+        "latest_query_no_cache": 1.0408340855860843e-15,
+        "cached_stream": 1.5543122344752192e-15
+      },
+      "speedup_cached_vs_full_prefix": 23.321506742352934,
+      "speedup_cached_vs_latest_query_no_cache": 3.390086437663136,
+      "matrix_multiply_accumulate_counts": {
+        "full_prefix_reference": 1124253696,
+        "latest_query_no_cache": 274743296,
+        "cached_stream": 7356416
+      },
+      "mac_reduction_cached_vs_latest_query_no_cache": 37.347438752783965,
+      "persistent_kv_cache_bytes": 262144
+    },
+    {
+      "sequence_length": 512,
+      "hidden_dimension": 64,
+      "seed": 20261513,
+      "repeats": 7,
+      "times_ms": {
+        "full_prefix_reference": [
+          717.3504750026041,
+          710.4346049964079,
+          718.5849759989651,
+          773.7194910005201,
+          799.0590039989911,
+          704.6996459976071,
+          808.8235920004081
+        ],
+        "latest_query_no_cache": [
+          58.07518700021319,
+          58.804519998375326,
+          70.33235999551835,
+          66.45446900074603,
+          58.159692998742685,
+          60.184673995536286,
+          66.51228600094328
+        ],
+        "cached_stream": [
+          8.914960999391042,
+          9.43102299788734,
+          10.3271669941023,
+          9.555980999721214,
+          9.405703996890225,
+          11.68233499629423,
+          9.338433002994861
+        ]
+      },
+      "median_ms": {
+        "full_prefix_reference": 718.5849759989651,
+        "latest_query_no_cache": 60.184673995536286,
+        "cached_stream": 9.43102299788734
+      },
+      "max_absolute_error": {
+        "full_prefix_reference": 0.0,
+        "latest_query_no_cache": 1.7208456881689926e-15,
+        "cached_stream": 1.887379141862766e-15
+      },
+      "speedup_cached_vs_full_prefix": 76.19374654901559,
+      "speedup_cached_vs_latest_query_no_cache": 6.381563697704731,
+      "matrix_multiply_accumulate_counts": {
+        "full_prefix_reference": 7357169664,
+        "latest_query_no_cache": 1094746112,
+        "cached_stream": 23101440
+      },
+      "mac_reduction_cached_vs_latest_query_no_cache": 47.38865248226951,
+      "persistent_kv_cache_bytes": 524288
+    }
+  ],
+  "sources": [
+    "https://huggingface.co/docs/transformers/cache_explanation",
+    "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+    "https://arxiv.org/abs/2505.22954"
+  ]
+}

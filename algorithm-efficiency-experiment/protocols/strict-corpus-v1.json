@@ -1,0 +1,3153 @@
+{
+  "frozen_utc": "2026-10-02T16:08:02.624956+00:00",
+  "grammar_freeze_sha256": "f37eaf162e6d6bff24a801c3b2112a01265c4350c14275b8d472f6f393cdf7c1",
+  "source_sha256": "f36faa169d14e78d172f1548246422776d8b0048b1c32136423d55c0d82649bf",
+  "source_checksums_sha256": "ab2c4661af331dfebff657a29ec92881189e098d554ee77fcd4ab3cbc1482a86",
+  "corpus": [
+    {
+      "case_id": "contract-lookup-01-1",
+      "family_id": "contract-lookup-01",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-01",
+      "question": "Please tell me the color assigned to item001.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item001"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "yellow"
+      }
+    },
+    {
+      "case_id": "contract-lookup-01-2",
+      "family_id": "contract-lookup-01",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-02",
+      "question": "Please tell me the color assigned to item007.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item007"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "black"
+      }
+    },
+    {
+      "case_id": "contract-lookup-01-3",
+      "family_id": "contract-lookup-01",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-03",
+      "question": "Please tell me the color assigned to item013.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item013"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "pink"
+      }
+    },
+    {
+      "case_id": "contract-lookup-01-4",
+      "family_id": "contract-lookup-01",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-04",
+      "question": "Please tell me the color assigned to item99999.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item99999"
+      },
+      "expected_result": {
+        "status": "not_found",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "contract-lookup-02-1",
+      "family_id": "contract-lookup-02",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-05",
+      "question": "Please give me the color recorded for item001.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item001"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "white"
+      }
+    },
+    {
+      "case_id": "contract-lookup-02-2",
+      "family_id": "contract-lookup-02",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-06",
+      "question": "Please give me the color recorded for item007.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item007"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "green"
+      }
+    },
+    {
+      "case_id": "contract-lookup-02-3",
+      "family_id": "contract-lookup-02",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-07",
+      "question": "Please give me the color recorded for item013.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item013"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "brown"
+      }
+    },
+    {
+      "case_id": "contract-lookup-02-4",
+      "family_id": "contract-lookup-02",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-08",
+      "question": "Please give me the color recorded for item99999.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item99999"
+      },
+      "expected_result": {
+        "status": "not_found",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "contract-lookup-03-1",
+      "family_id": "contract-lookup-03",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-09",
+      "question": "Please return the stored color of item001.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item001"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "blue"
+      }
+    },
+    {
+      "case_id": "contract-lookup-03-2",
+      "family_id": "contract-lookup-03",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-10",
+      "question": "Please return the stored color of item007.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item007"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "red"
+      }
+    },
+    {
+      "case_id": "contract-lookup-03-3",
+      "family_id": "contract-lookup-03",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-01",
+      "question": "Please return the stored color of item068.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item068"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "blue"
+      }
+    },
+    {
+      "case_id": "contract-lookup-03-4",
+      "family_id": "contract-lookup-03",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-02",
+      "question": "Please return the stored color of item99999.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item99999"
+      },
+      "expected_result": {
+        "status": "not_found",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "contract-lookup-04-1",
+      "family_id": "contract-lookup-04",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-03",
+      "question": "Please find the color belonging to item001.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item001"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "blue"
+      }
+    },
+    {
+      "case_id": "contract-lookup-04-2",
+      "family_id": "contract-lookup-04",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-04",
+      "question": "Please find the color belonging to item035.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item035"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "red"
+      }
+    },
+    {
+      "case_id": "contract-lookup-04-3",
+      "family_id": "contract-lookup-04",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-05",
+      "question": "Please find the color belonging to item068.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item068"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "yellow"
+      }
+    },
+    {
+      "case_id": "contract-lookup-04-4",
+      "family_id": "contract-lookup-04",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-06",
+      "question": "Please find the color belonging to item99999.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item99999"
+      },
+      "expected_result": {
+        "status": "not_found",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "contract-lookup-05-1",
+      "family_id": "contract-lookup-05",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-07",
+      "question": "Please look up item001.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item001"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "black"
+      }
+    },
+    {
+      "case_id": "contract-lookup-05-2",
+      "family_id": "contract-lookup-05",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-08",
+      "question": "Please look up item035.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item035"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "black"
+      }
+    },
+    {
+      "case_id": "contract-lookup-05-3",
+      "family_id": "contract-lookup-05",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-09",
+      "question": "Please look up item068.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item068"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "blue"
+      }
+    },
+    {
+      "case_id": "contract-lookup-05-4",
+      "family_id": "contract-lookup-05",
+      "stratum": "contract",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-10",
+      "question": "Please look up item99999.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item99999"
+      },
+      "expected_result": {
+        "status": "not_found",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "contract-count-01-1",
+      "family_id": "contract-count-01",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n1536-01",
+      "question": "Please count blue entries.",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "blue"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 23
+      }
+    },
+    {
+      "case_id": "contract-count-01-2",
+      "family_id": "contract-count-01",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n1536-02",
+      "question": "Please count green entries.",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "green"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 21
+      }
+    },
+    {
+      "case_id": "contract-count-01-3",
+      "family_id": "contract-count-01",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n1536-03",
+      "question": "Please count yellow entries.",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "yellow"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 28
+      }
+    },
+    {
+      "case_id": "contract-count-01-4",
+      "family_id": "contract-count-01",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-03",
+      "question": "Please count red entries.",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "red"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 0
+      }
+    },
+    {
+      "case_id": "contract-count-02-1",
+      "family_id": "contract-count-02",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n1536-05",
+      "question": "How many records are white?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "white"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 29
+      }
+    },
+    {
+      "case_id": "contract-count-02-2",
+      "family_id": "contract-count-02",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n1536-06",
+      "question": "How many records are black?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "black"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 28
+      }
+    },
+    {
+      "case_id": "contract-count-02-3",
+      "family_id": "contract-count-02",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n1536-07",
+      "question": "How many records are pink?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "pink"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 26
+      }
+    },
+    {
+      "case_id": "contract-count-02-4",
+      "family_id": "contract-count-02",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-03",
+      "question": "How many records are yellow?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "yellow"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 0
+      }
+    },
+    {
+      "case_id": "contract-count-03-1",
+      "family_id": "contract-count-03",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n1536-09",
+      "question": "Give me the number of records colored pink.",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "pink"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 38
+      }
+    },
+    {
+      "case_id": "contract-count-03-2",
+      "family_id": "contract-count-03",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n1536-10",
+      "question": "Give me the number of records colored blue.",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "blue"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 21
+      }
+    },
+    {
+      "case_id": "contract-count-03-3",
+      "family_id": "contract-count-03",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-01",
+      "question": "Give me the number of records colored green.",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "green"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 1
+      }
+    },
+    {
+      "case_id": "contract-count-03-4",
+      "family_id": "contract-count-03",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-03",
+      "question": "Give me the number of records colored brown.",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "brown"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 0
+      }
+    },
+    {
+      "case_id": "contract-count-04-1",
+      "family_id": "contract-count-04",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-03",
+      "question": "What is the size of the set of red entries?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "red"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 0
+      }
+    },
+    {
+      "case_id": "contract-count-04-2",
+      "family_id": "contract-count-04",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-04",
+      "question": "What is the size of the set of yellow entries?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "yellow"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 3
+      }
+    },
+    {
+      "case_id": "contract-count-04-3",
+      "family_id": "contract-count-04",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-05",
+      "question": "What is the size of the set of white entries?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "white"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 1
+      }
+    },
+    {
+      "case_id": "contract-count-04-4",
+      "family_id": "contract-count-04",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-04",
+      "question": "What is the size of the set of pink entries?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "pink"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 0
+      }
+    },
+    {
+      "case_id": "contract-count-05-1",
+      "family_id": "contract-count-05",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-07",
+      "question": "How large is the group of records that are pink?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "pink"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 2
+      }
+    },
+    {
+      "case_id": "contract-count-05-2",
+      "family_id": "contract-count-05",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-08",
+      "question": "How large is the group of records that are brown?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "brown"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 3
+      }
+    },
+    {
+      "case_id": "contract-count-05-3",
+      "family_id": "contract-count-05",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-09",
+      "question": "How large is the group of records that are blue?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "blue"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 2
+      }
+    },
+    {
+      "case_id": "contract-count-05-4",
+      "family_id": "contract-count-05",
+      "stratum": "contract",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-05",
+      "question": "How large is the group of records that are yellow?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "yellow"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 0
+      }
+    },
+    {
+      "case_id": "contract-list-01-1",
+      "family_id": "contract-list-01",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n512-01",
+      "question": "Please list blue records.",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "blue"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item041",
+          "item066",
+          "item068"
+        ]
+      }
+    },
+    {
+      "case_id": "contract-list-01-2",
+      "family_id": "contract-list-01",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n512-02",
+      "question": "Please list green records.",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "green"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item004",
+          "item010",
+          "item015",
+          "item025",
+          "item032",
+          "item038",
+          "item055"
+        ]
+      }
+    },
+    {
+      "case_id": "contract-list-01-3",
+      "family_id": "contract-list-01",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n512-03",
+      "question": "Please list red records.",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "red"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item003",
+          "item012",
+          "item014",
+          "item017",
+          "item045",
+          "item047",
+          "item067"
+        ]
+      }
+    },
+    {
+      "case_id": "contract-list-01-4",
+      "family_id": "contract-list-01",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n128-05",
+      "question": "Please list pink records.",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "pink"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": []
+      }
+    },
+    {
+      "case_id": "contract-list-02-1",
+      "family_id": "contract-list-02",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n512-05",
+      "question": "Which entries are white?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "white"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item017",
+          "item030",
+          "item042",
+          "item047",
+          "item067"
+        ]
+      }
+    },
+    {
+      "case_id": "contract-list-02-2",
+      "family_id": "contract-list-02",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n512-06",
+      "question": "Which entries are black?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "black"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item001",
+          "item006",
+          "item020",
+          "item023",
+          "item025",
+          "item029",
+          "item041",
+          "item042",
+          "item046",
+          "item059",
+          "item065",
+          "item068"
+        ]
+      }
+    },
+    {
+      "case_id": "contract-list-02-3",
+      "family_id": "contract-list-02",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n512-07",
+      "question": "Which entries are pink?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "pink"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item003",
+          "item014",
+          "item018",
+          "item026",
+          "item028",
+          "item032",
+          "item034",
+          "item040"
+        ]
+      }
+    },
+    {
+      "case_id": "contract-list-02-4",
+      "family_id": "contract-list-02",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n128-07",
+      "question": "Which entries are yellow?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "yellow"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": []
+      }
+    },
+    {
+      "case_id": "contract-list-03-1",
+      "family_id": "contract-list-03",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n512-09",
+      "question": "Give me the identifiers of entries colored brown.",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "brown"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item001",
+          "item006",
+          "item012",
+          "item013",
+          "item025",
+          "item028",
+          "item037",
+          "item041",
+          "item042",
+          "item045",
+          "item047",
+          "item057",
+          "item062",
+          "item063"
+        ]
+      }
+    },
+    {
+      "case_id": "contract-list-03-2",
+      "family_id": "contract-list-03",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n512-10",
+      "question": "Give me the identifiers of entries colored green.",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "green"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item001",
+          "item009",
+          "item012",
+          "item017",
+          "item034",
+          "item039",
+          "item042",
+          "item068"
+        ]
+      }
+    },
+    {
+      "case_id": "contract-list-03-3",
+      "family_id": "contract-list-03",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n1536-01",
+      "question": "Give me the identifiers of entries colored red.",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "red"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item010",
+          "item019",
+          "item031",
+          "item033",
+          "item035",
+          "item047",
+          "item053",
+          "item061",
+          "item068",
+          "item069",
+          "item071",
+          "item073",
+          "item081",
+          "item082",
+          "item084",
+          "item095",
+          "item105",
+          "item125",
+          "item130",
+          "item148",
+          "item166",
+          "item168",
+          "item170",
+          "item183",
+          "item192",
+          "item203"
+        ]
+      }
+    },
+    {
+      "case_id": "contract-list-03-4",
+      "family_id": "contract-list-03",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n128-08",
+      "question": "Give me the identifiers of entries colored blue.",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "blue"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": []
+      }
+    },
+    {
+      "case_id": "contract-list-04-1",
+      "family_id": "contract-list-04",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n1536-03",
+      "question": "Enumerate the records marked red.",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "red"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item001",
+          "item006",
+          "item020",
+          "item025",
+          "item031",
+          "item036",
+          "item040",
+          "item042",
+          "item052",
+          "item054",
+          "item057",
+          "item066",
+          "item072",
+          "item076",
+          "item077",
+          "item080",
+          "item083",
+          "item091",
+          "item094",
+          "item099",
+          "item104",
+          "item108",
+          "item110",
+          "item114",
+          "item141",
+          "item147",
+          "item148",
+          "item150",
+          "item176",
+          "item185",
+          "item192",
+          "item193",
+          "item198",
+          "item199",
+          "item209"
+        ]
+      }
+    },
+    {
+      "case_id": "contract-list-04-2",
+      "family_id": "contract-list-04",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n1536-04",
+      "question": "Enumerate the records marked yellow.",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "yellow"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item005",
+          "item008",
+          "item022",
+          "item024",
+          "item027",
+          "item035",
+          "item047",
+          "item059",
+          "item070",
+          "item073",
+          "item079",
+          "item093",
+          "item095",
+          "item109",
+          "item115",
+          "item123",
+          "item125",
+          "item135",
+          "item142",
+          "item150",
+          "item155",
+          "item157",
+          "item158",
+          "item161",
+          "item174",
+          "item175",
+          "item180",
+          "item181",
+          "item183",
+          "item197",
+          "item199",
+          "item212"
+        ]
+      }
+    },
+    {
+      "case_id": "contract-list-04-3",
+      "family_id": "contract-list-04",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n1536-05",
+      "question": "Enumerate the records marked black.",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "black"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item002",
+          "item018",
+          "item028",
+          "item040",
+          "item043",
+          "item047",
+          "item048",
+          "item070",
+          "item072",
+          "item075",
+          "item079",
+          "item084",
+          "item092",
+          "item094",
+          "item099",
+          "item102",
+          "item108",
+          "item109",
+          "item112",
+          "item117",
+          "item136",
+          "item147",
+          "item155",
+          "item172",
+          "item191",
+          "item206",
+          "item210",
+          "item214"
+        ]
+      }
+    },
+    {
+      "case_id": "contract-list-04-4",
+      "family_id": "contract-list-04",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n128-08",
+      "question": "Enumerate the records marked white.",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "white"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": []
+      }
+    },
+    {
+      "case_id": "contract-list-05-1",
+      "family_id": "contract-list-05",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n1536-07",
+      "question": "Tell me which entries have color pink?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "pink"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item004",
+          "item008",
+          "item026",
+          "item028",
+          "item037",
+          "item046",
+          "item063",
+          "item075",
+          "item080",
+          "item086",
+          "item087",
+          "item104",
+          "item109",
+          "item111",
+          "item112",
+          "item128",
+          "item131",
+          "item148",
+          "item149",
+          "item162",
+          "item165",
+          "item166",
+          "item167",
+          "item174",
+          "item178",
+          "item198"
+        ]
+      }
+    },
+    {
+      "case_id": "contract-list-05-2",
+      "family_id": "contract-list-05",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n1536-08",
+      "question": "Tell me which entries have color brown?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "brown"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item001",
+          "item002",
+          "item006",
+          "item009",
+          "item014",
+          "item015",
+          "item017",
+          "item039",
+          "item041",
+          "item043",
+          "item053",
+          "item063",
+          "item078",
+          "item082",
+          "item087",
+          "item090",
+          "item105",
+          "item110",
+          "item135",
+          "item142",
+          "item143",
+          "item144",
+          "item152",
+          "item155",
+          "item160",
+          "item163",
+          "item188",
+          "item189",
+          "item193",
+          "item203"
+        ]
+      }
+    },
+    {
+      "case_id": "contract-list-05-3",
+      "family_id": "contract-list-05",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n1536-09",
+      "question": "Tell me which entries have color blue?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "blue"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item017",
+          "item026",
+          "item034",
+          "item054",
+          "item059",
+          "item063",
+          "item136",
+          "item142",
+          "item158",
+          "item179",
+          "item181",
+          "item184",
+          "item194",
+          "item200",
+          "item209",
+          "item213"
+        ]
+      }
+    },
+    {
+      "case_id": "contract-list-05-4",
+      "family_id": "contract-list-05",
+      "stratum": "contract",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n128-09",
+      "question": "Tell me which entries have color yellow?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "yellow"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": []
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-01-1",
+      "family_id": "unfamiliar-lookup-01",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-01",
+      "question": "item001 has a color on file; what is it?",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item001"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "yellow"
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-01-2",
+      "family_id": "unfamiliar-lookup-01",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-02",
+      "question": "item007 has a color on file; what is it?",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item007"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "black"
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-01-3",
+      "family_id": "unfamiliar-lookup-01",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-03",
+      "question": "item013 has a color on file; what is it?",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item013"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "pink"
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-01-4",
+      "family_id": "unfamiliar-lookup-01",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-04",
+      "question": "item99999 has a color on file; what is it?",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item99999"
+      },
+      "expected_result": {
+        "status": "not_found",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-02-1",
+      "family_id": "unfamiliar-lookup-02",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-05",
+      "question": "Under the color field for item001, what value would I find?",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item001"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "white"
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-02-2",
+      "family_id": "unfamiliar-lookup-02",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-06",
+      "question": "Under the color field for item007, what value would I find?",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item007"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "green"
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-02-3",
+      "family_id": "unfamiliar-lookup-02",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-07",
+      "question": "Under the color field for item013, what value would I find?",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item013"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "brown"
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-02-4",
+      "family_id": "unfamiliar-lookup-02",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-08",
+      "question": "Under the color field for item99999, what value would I find?",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item99999"
+      },
+      "expected_result": {
+        "status": "not_found",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-03-1",
+      "family_id": "unfamiliar-lookup-03",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-09",
+      "question": "Can you identify the recorded hue of item001?",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item001"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "blue"
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-03-2",
+      "family_id": "unfamiliar-lookup-03",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n128-10",
+      "question": "Can you identify the recorded hue of item007?",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item007"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "red"
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-03-3",
+      "family_id": "unfamiliar-lookup-03",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-01",
+      "question": "Can you identify the recorded hue of item068?",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item068"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "blue"
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-03-4",
+      "family_id": "unfamiliar-lookup-03",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-02",
+      "question": "Can you identify the recorded hue of item99999?",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item99999"
+      },
+      "expected_result": {
+        "status": "not_found",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-04-1",
+      "family_id": "unfamiliar-lookup-04",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-03",
+      "question": "Looking only at item001, report its color value.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item001"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "blue"
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-04-2",
+      "family_id": "unfamiliar-lookup-04",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-04",
+      "question": "Looking only at item035, report its color value.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item035"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "red"
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-04-3",
+      "family_id": "unfamiliar-lookup-04",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-05",
+      "question": "Looking only at item068, report its color value.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item068"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "yellow"
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-04-4",
+      "family_id": "unfamiliar-lookup-04",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-06",
+      "question": "Looking only at item99999, report its color value.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item99999"
+      },
+      "expected_result": {
+        "status": "not_found",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-05-1",
+      "family_id": "unfamiliar-lookup-05",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-07",
+      "question": "For the entry named item001, supply the saved color.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item001"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "black"
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-05-2",
+      "family_id": "unfamiliar-lookup-05",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-08",
+      "question": "For the entry named item035, supply the saved color.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item035"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "black"
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-05-3",
+      "family_id": "unfamiliar-lookup-05",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-09",
+      "question": "For the entry named item068, supply the saved color.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item068"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": "blue"
+      }
+    },
+    {
+      "case_id": "unfamiliar-lookup-05-4",
+      "family_id": "unfamiliar-lookup-05",
+      "stratum": "unfamiliar",
+      "category": "LOOKUP",
+      "supported": true,
+      "fixture_id": "fresh-n512-10",
+      "question": "For the entry named item99999, supply the saved color.",
+      "expected_command": {
+        "operation": "LOOKUP",
+        "argument": "item99999"
+      },
+      "expected_result": {
+        "status": "not_found",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-01-1",
+      "family_id": "unfamiliar-count-01",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n1536-01",
+      "question": "If I keep only the blue items, how many remain?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "blue"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 23
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-01-2",
+      "family_id": "unfamiliar-count-01",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n1536-02",
+      "question": "If I keep only the green items, how many remain?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "green"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 21
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-01-3",
+      "family_id": "unfamiliar-count-01",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n1536-03",
+      "question": "If I keep only the yellow items, how many remain?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "yellow"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 28
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-01-4",
+      "family_id": "unfamiliar-count-01",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-03",
+      "question": "If I keep only the red items, how many remain?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "red"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 0
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-02-1",
+      "family_id": "unfamiliar-count-02",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n1536-05",
+      "question": "After filtering for white, how many records would be left?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "white"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 29
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-02-2",
+      "family_id": "unfamiliar-count-02",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n1536-06",
+      "question": "After filtering for black, how many records would be left?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "black"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 28
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-02-3",
+      "family_id": "unfamiliar-count-02",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n1536-07",
+      "question": "After filtering for pink, how many records would be left?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "pink"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 26
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-02-4",
+      "family_id": "unfamiliar-count-02",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-03",
+      "question": "After filtering for yellow, how many records would be left?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "yellow"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 0
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-03-1",
+      "family_id": "unfamiliar-count-03",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n1536-09",
+      "question": "Report a single integer: the number of entries colored pink.",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "pink"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 38
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-03-2",
+      "family_id": "unfamiliar-count-03",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n1536-10",
+      "question": "Report a single integer: the number of entries colored blue.",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "blue"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 21
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-03-3",
+      "family_id": "unfamiliar-count-03",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-01",
+      "question": "Report a single integer: the number of entries colored green.",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "green"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 1
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-03-4",
+      "family_id": "unfamiliar-count-03",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-03",
+      "question": "Report a single integer: the number of entries colored brown.",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "brown"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 0
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-04-1",
+      "family_id": "unfamiliar-count-04",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-03",
+      "question": "The red subset contains how many items?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "red"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 0
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-04-2",
+      "family_id": "unfamiliar-count-04",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-04",
+      "question": "The yellow subset contains how many items?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "yellow"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 3
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-04-3",
+      "family_id": "unfamiliar-count-04",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-05",
+      "question": "The white subset contains how many items?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "white"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 1
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-04-4",
+      "family_id": "unfamiliar-count-04",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-04",
+      "question": "The pink subset contains how many items?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "pink"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 0
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-05-1",
+      "family_id": "unfamiliar-count-05",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-07",
+      "question": "What would a tally of every pink entry come to?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "pink"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 2
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-05-2",
+      "family_id": "unfamiliar-count-05",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-08",
+      "question": "What would a tally of every brown entry come to?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "brown"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 3
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-05-3",
+      "family_id": "unfamiliar-count-05",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-09",
+      "question": "What would a tally of every blue entry come to?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "blue"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 2
+      }
+    },
+    {
+      "case_id": "unfamiliar-count-05-4",
+      "family_id": "unfamiliar-count-05",
+      "stratum": "unfamiliar",
+      "category": "COUNT",
+      "supported": true,
+      "fixture_id": "fresh-n128-05",
+      "question": "What would a tally of every yellow entry come to?",
+      "expected_command": {
+        "operation": "COUNT",
+        "argument": "yellow"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": 0
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-01-1",
+      "family_id": "unfamiliar-list-01",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n512-01",
+      "question": "If I keep only the blue items, which identifiers remain?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "blue"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item041",
+          "item066",
+          "item068"
+        ]
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-01-2",
+      "family_id": "unfamiliar-list-01",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n512-02",
+      "question": "If I keep only the green items, which identifiers remain?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "green"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item004",
+          "item010",
+          "item015",
+          "item025",
+          "item032",
+          "item038",
+          "item055"
+        ]
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-01-3",
+      "family_id": "unfamiliar-list-01",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n512-03",
+      "question": "If I keep only the red items, which identifiers remain?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "red"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item003",
+          "item012",
+          "item014",
+          "item017",
+          "item045",
+          "item047",
+          "item067"
+        ]
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-01-4",
+      "family_id": "unfamiliar-list-01",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n128-05",
+      "question": "If I keep only the pink items, which identifiers remain?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "pink"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": []
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-02-1",
+      "family_id": "unfamiliar-list-02",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n512-05",
+      "question": "After filtering for white, which record IDs would be left?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "white"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item017",
+          "item030",
+          "item042",
+          "item047",
+          "item067"
+        ]
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-02-2",
+      "family_id": "unfamiliar-list-02",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n512-06",
+      "question": "After filtering for black, which record IDs would be left?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "black"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item001",
+          "item006",
+          "item020",
+          "item023",
+          "item025",
+          "item029",
+          "item041",
+          "item042",
+          "item046",
+          "item059",
+          "item065",
+          "item068"
+        ]
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-02-3",
+      "family_id": "unfamiliar-list-02",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n512-07",
+      "question": "After filtering for pink, which record IDs would be left?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "pink"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item003",
+          "item014",
+          "item018",
+          "item026",
+          "item028",
+          "item032",
+          "item034",
+          "item040"
+        ]
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-02-4",
+      "family_id": "unfamiliar-list-02",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n128-07",
+      "question": "After filtering for yellow, which record IDs would be left?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "yellow"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": []
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-03-1",
+      "family_id": "unfamiliar-list-03",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n512-09",
+      "question": "Report the IDs, one for each entry colored brown.",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "brown"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item001",
+          "item006",
+          "item012",
+          "item013",
+          "item025",
+          "item028",
+          "item037",
+          "item041",
+          "item042",
+          "item045",
+          "item047",
+          "item057",
+          "item062",
+          "item063"
+        ]
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-03-2",
+      "family_id": "unfamiliar-list-03",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n512-10",
+      "question": "Report the IDs, one for each entry colored green.",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "green"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item001",
+          "item009",
+          "item012",
+          "item017",
+          "item034",
+          "item039",
+          "item042",
+          "item068"
+        ]
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-03-3",
+      "family_id": "unfamiliar-list-03",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n1536-01",
+      "question": "Report the IDs, one for each entry colored red.",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "red"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item010",
+          "item019",
+          "item031",
+          "item033",
+          "item035",
+          "item047",
+          "item053",
+          "item061",
+          "item068",
+          "item069",
+          "item071",
+          "item073",
+          "item081",
+          "item082",
+          "item084",
+          "item095",
+          "item105",
+          "item125",
+          "item130",
+          "item148",
+          "item166",
+          "item168",
+          "item170",
+          "item183",
+          "item192",
+          "item203"
+        ]
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-03-4",
+      "family_id": "unfamiliar-list-03",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n128-08",
+      "question": "Report the IDs, one for each entry colored blue.",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "blue"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": []
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-04-1",
+      "family_id": "unfamiliar-list-04",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n1536-03",
+      "question": "The red subset contains which item identifiers?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "red"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item001",
+          "item006",
+          "item020",
+          "item025",
+          "item031",
+          "item036",
+          "item040",
+          "item042",
+          "item052",
+          "item054",
+          "item057",
+          "item066",
+          "item072",
+          "item076",
+          "item077",
+          "item080",
+          "item083",
+          "item091",
+          "item094",
+          "item099",
+          "item104",
+          "item108",
+          "item110",
+          "item114",
+          "item141",
+          "item147",
+          "item148",
+          "item150",
+          "item176",
+          "item185",
+          "item192",
+          "item193",
+          "item198",
+          "item199",
+          "item209"
+        ]
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-04-2",
+      "family_id": "unfamiliar-list-04",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n1536-04",
+      "question": "The yellow subset contains which item identifiers?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "yellow"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item005",
+          "item008",
+          "item022",
+          "item024",
+          "item027",
+          "item035",
+          "item047",
+          "item059",
+          "item070",
+          "item073",
+          "item079",
+          "item093",
+          "item095",
+          "item109",
+          "item115",
+          "item123",
+          "item125",
+          "item135",
+          "item142",
+          "item150",
+          "item155",
+          "item157",
+          "item158",
+          "item161",
+          "item174",
+          "item175",
+          "item180",
+          "item181",
+          "item183",
+          "item197",
+          "item199",
+          "item212"
+        ]
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-04-3",
+      "family_id": "unfamiliar-list-04",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n1536-05",
+      "question": "The black subset contains which item identifiers?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "black"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item002",
+          "item018",
+          "item028",
+          "item040",
+          "item043",
+          "item047",
+          "item048",
+          "item070",
+          "item072",
+          "item075",
+          "item079",
+          "item084",
+          "item092",
+          "item094",
+          "item099",
+          "item102",
+          "item108",
+          "item109",
+          "item112",
+          "item117",
+          "item136",
+          "item147",
+          "item155",
+          "item172",
+          "item191",
+          "item206",
+          "item210",
+          "item214"
+        ]
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-04-4",
+      "family_id": "unfamiliar-list-04",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n128-08",
+      "question": "The white subset contains which item identifiers?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "white"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": []
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-05-1",
+      "family_id": "unfamiliar-list-05",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n1536-07",
+      "question": "What identifiers belong to every entry whose color is pink?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "pink"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item004",
+          "item008",
+          "item026",
+          "item028",
+          "item037",
+          "item046",
+          "item063",
+          "item075",
+          "item080",
+          "item086",
+          "item087",
+          "item104",
+          "item109",
+          "item111",
+          "item112",
+          "item128",
+          "item131",
+          "item148",
+          "item149",
+          "item162",
+          "item165",
+          "item166",
+          "item167",
+          "item174",
+          "item178",
+          "item198"
+        ]
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-05-2",
+      "family_id": "unfamiliar-list-05",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n1536-08",
+      "question": "What identifiers belong to every entry whose color is brown?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "brown"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item001",
+          "item002",
+          "item006",
+          "item009",
+          "item014",
+          "item015",
+          "item017",
+          "item039",
+          "item041",
+          "item043",
+          "item053",
+          "item063",
+          "item078",
+          "item082",
+          "item087",
+          "item090",
+          "item105",
+          "item110",
+          "item135",
+          "item142",
+          "item143",
+          "item144",
+          "item152",
+          "item155",
+          "item160",
+          "item163",
+          "item188",
+          "item189",
+          "item193",
+          "item203"
+        ]
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-05-3",
+      "family_id": "unfamiliar-list-05",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n1536-09",
+      "question": "What identifiers belong to every entry whose color is blue?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "blue"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": [
+          "item017",
+          "item026",
+          "item034",
+          "item054",
+          "item059",
+          "item063",
+          "item136",
+          "item142",
+          "item158",
+          "item179",
+          "item181",
+          "item184",
+          "item194",
+          "item200",
+          "item209",
+          "item213"
+        ]
+      }
+    },
+    {
+      "case_id": "unfamiliar-list-05-4",
+      "family_id": "unfamiliar-list-05",
+      "stratum": "unfamiliar",
+      "category": "LIST",
+      "supported": true,
+      "fixture_id": "fresh-n128-09",
+      "question": "What identifiers belong to every entry whose color is yellow?",
+      "expected_command": {
+        "operation": "LIST",
+        "argument": "yellow"
+      },
+      "expected_result": {
+        "status": "ok",
+        "answer": []
+      }
+    },
+    {
+      "case_id": "negative-01-1",
+      "family_id": "negative-01",
+      "stratum": "negative",
+      "category": "missing_referent",
+      "supported": false,
+      "fixture_id": "fresh-n128-01",
+      "question": "In collection 1, return the color of the one I mean.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-01-2",
+      "family_id": "negative-01",
+      "stratum": "negative",
+      "category": "missing_referent",
+      "supported": false,
+      "fixture_id": "fresh-n128-02",
+      "question": "In collection 2, return the color of the one I mean.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-01-3",
+      "family_id": "negative-01",
+      "stratum": "negative",
+      "category": "missing_referent",
+      "supported": false,
+      "fixture_id": "fresh-n128-03",
+      "question": "In collection 3, return the color of the one I mean.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-01-4",
+      "family_id": "negative-01",
+      "stratum": "negative",
+      "category": "missing_referent",
+      "supported": false,
+      "fixture_id": "fresh-n128-04",
+      "question": "In collection 4, return the color of the one I mean.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-02-1",
+      "family_id": "negative-02",
+      "stratum": "negative",
+      "category": "multiple_items",
+      "supported": false,
+      "fixture_id": "fresh-n128-05",
+      "question": "Look up item002; also look up item006.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-02-2",
+      "family_id": "negative-02",
+      "stratum": "negative",
+      "category": "multiple_items",
+      "supported": false,
+      "fixture_id": "fresh-n128-06",
+      "question": "Look up item003; also look up item007.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-02-3",
+      "family_id": "negative-02",
+      "stratum": "negative",
+      "category": "multiple_items",
+      "supported": false,
+      "fixture_id": "fresh-n128-07",
+      "question": "Look up item004; also look up item008.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-02-4",
+      "family_id": "negative-02",
+      "stratum": "negative",
+      "category": "multiple_items",
+      "supported": false,
+      "fixture_id": "fresh-n128-08",
+      "question": "Look up item005; also look up item009.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-03-1",
+      "family_id": "negative-03",
+      "stratum": "negative",
+      "category": "multiple_colors",
+      "supported": false,
+      "fixture_id": "fresh-n128-09",
+      "question": "List red items together with yellow items.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-03-2",
+      "family_id": "negative-03",
+      "stratum": "negative",
+      "category": "multiple_colors",
+      "supported": false,
+      "fixture_id": "fresh-n128-10",
+      "question": "List yellow items together with white items.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-03-3",
+      "family_id": "negative-03",
+      "stratum": "negative",
+      "category": "multiple_colors",
+      "supported": false,
+      "fixture_id": "fresh-n512-01",
+      "question": "List white items together with black items.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-03-4",
+      "family_id": "negative-03",
+      "stratum": "negative",
+      "category": "multiple_colors",
+      "supported": false,
+      "fixture_id": "fresh-n512-02",
+      "question": "List black items together with pink items.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-04-1",
+      "family_id": "negative-04",
+      "stratum": "negative",
+      "category": "negation",
+      "supported": false,
+      "fixture_id": "fresh-n512-03",
+      "question": "Count entries whose color is anything except yellow.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-04-2",
+      "family_id": "negative-04",
+      "stratum": "negative",
+      "category": "negation",
+      "supported": false,
+      "fixture_id": "fresh-n512-04",
+      "question": "Count entries whose color is anything except white.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-04-3",
+      "family_id": "negative-04",
+      "stratum": "negative",
+      "category": "negation",
+      "supported": false,
+      "fixture_id": "fresh-n512-05",
+      "question": "Count entries whose color is anything except black.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-04-4",
+      "family_id": "negative-04",
+      "stratum": "negative",
+      "category": "negation",
+      "supported": false,
+      "fixture_id": "fresh-n512-06",
+      "question": "Count entries whose color is anything except pink.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-05-1",
+      "family_id": "negative-05",
+      "stratum": "negative",
+      "category": "unsupported_color",
+      "supported": false,
+      "fixture_id": "fresh-n512-07",
+      "question": "Count purple records.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-05-2",
+      "family_id": "negative-05",
+      "stratum": "negative",
+      "category": "unsupported_color",
+      "supported": false,
+      "fixture_id": "fresh-n512-08",
+      "question": "Count orange records.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-05-3",
+      "family_id": "negative-05",
+      "stratum": "negative",
+      "category": "unsupported_color",
+      "supported": false,
+      "fixture_id": "fresh-n512-09",
+      "question": "Count gray records.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-05-4",
+      "family_id": "negative-05",
+      "stratum": "negative",
+      "category": "unsupported_color",
+      "supported": false,
+      "fixture_id": "fresh-n512-10",
+      "question": "Count violet records.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-06-1",
+      "family_id": "negative-06",
+      "stratum": "negative",
+      "category": "unsupported_attribute",
+      "supported": false,
+      "fixture_id": "fresh-n1536-01",
+      "question": "For item002, provide the stored weight.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-06-2",
+      "family_id": "negative-06",
+      "stratum": "negative",
+      "category": "unsupported_attribute",
+      "supported": false,
+      "fixture_id": "fresh-n1536-02",
+      "question": "For item003, provide the stored weight.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-06-3",
+      "family_id": "negative-06",
+      "stratum": "negative",
+      "category": "unsupported_attribute",
+      "supported": false,
+      "fixture_id": "fresh-n1536-03",
+      "question": "For item004, provide the stored weight.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-06-4",
+      "family_id": "negative-06",
+      "stratum": "negative",
+      "category": "unsupported_attribute",
+      "supported": false,
+      "fixture_id": "fresh-n1536-04",
+      "question": "For item005, provide the stored weight.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-07-1",
+      "family_id": "negative-07",
+      "stratum": "negative",
+      "category": "unsupported_aggregation",
+      "supported": false,
+      "fixture_id": "fresh-n1536-05",
+      "question": "What fraction of records are pink?",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-07-2",
+      "family_id": "negative-07",
+      "stratum": "negative",
+      "category": "unsupported_aggregation",
+      "supported": false,
+      "fixture_id": "fresh-n1536-06",
+      "question": "What fraction of records are brown?",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-07-3",
+      "family_id": "negative-07",
+      "stratum": "negative",
+      "category": "unsupported_aggregation",
+      "supported": false,
+      "fixture_id": "fresh-n1536-07",
+      "question": "What fraction of records are blue?",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-07-4",
+      "family_id": "negative-07",
+      "stratum": "negative",
+      "category": "unsupported_aggregation",
+      "supported": false,
+      "fixture_id": "fresh-n1536-08",
+      "question": "What fraction of records are green?",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-08-1",
+      "family_id": "negative-08",
+      "stratum": "negative",
+      "category": "compound_request",
+      "supported": false,
+      "fixture_id": "fresh-n1536-09",
+      "question": "How many items are brown, and which IDs do they have?",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-08-2",
+      "family_id": "negative-08",
+      "stratum": "negative",
+      "category": "compound_request",
+      "supported": false,
+      "fixture_id": "fresh-n1536-10",
+      "question": "How many items are blue, and which IDs do they have?",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-08-3",
+      "family_id": "negative-08",
+      "stratum": "negative",
+      "category": "compound_request",
+      "supported": false,
+      "fixture_id": "fresh-n128-01",
+      "question": "How many items are green, and which IDs do they have?",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-08-4",
+      "family_id": "negative-08",
+      "stratum": "negative",
+      "category": "compound_request",
+      "supported": false,
+      "fixture_id": "fresh-n128-02",
+      "question": "How many items are red, and which IDs do they have?",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-09-1",
+      "family_id": "negative-09",
+      "stratum": "negative",
+      "category": "hypothetical_override",
+      "supported": false,
+      "fixture_id": "fresh-n128-03",
+      "question": "Pretend item002 has color blue; tell me its color using that assumption.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-09-2",
+      "family_id": "negative-09",
+      "stratum": "negative",
+      "category": "hypothetical_override",
+      "supported": false,
+      "fixture_id": "fresh-n128-04",
+      "question": "Pretend item003 has color green; tell me its color using that assumption.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-09-3",
+      "family_id": "negative-09",
+      "stratum": "negative",
+      "category": "hypothetical_override",
+      "supported": false,
+      "fixture_id": "fresh-n128-05",
+      "question": "Pretend item004 has color red; tell me its color using that assumption.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-09-4",
+      "family_id": "negative-09",
+      "stratum": "negative",
+      "category": "hypothetical_override",
+      "supported": false,
+      "fixture_id": "fresh-n128-06",
+      "question": "Pretend item005 has color yellow; tell me its color using that assumption.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-10-1",
+      "family_id": "negative-10",
+      "stratum": "negative",
+      "category": "mutation",
+      "supported": false,
+      "fixture_id": "fresh-n128-07",
+      "question": "Change item002's color to green.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-10-2",
+      "family_id": "negative-10",
+      "stratum": "negative",
+      "category": "mutation",
+      "supported": false,
+      "fixture_id": "fresh-n128-08",
+      "question": "Change item003's color to red.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-10-3",
+      "family_id": "negative-10",
+      "stratum": "negative",
+      "category": "mutation",
+      "supported": false,
+      "fixture_id": "fresh-n128-09",
+      "question": "Change item004's color to yellow.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    },
+    {
+      "case_id": "negative-10-4",
+      "family_id": "negative-10",
+      "stratum": "negative",
+      "category": "mutation",
+      "supported": false,
+      "fixture_id": "fresh-n128-10",
+      "question": "Change item005's color to white.",
+      "expected_command": null,
+      "expected_result": {
+        "status": "abstain",
+        "answer": null
+      }
+    }
+  ],
+  "note": "Frozen before new-corpus evaluation; contract combinations are not unfamiliar language evidence."
+}

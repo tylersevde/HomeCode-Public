@@ -1,0 +1,16 @@
+#version 450
+#ifndef GROUP
+#define GROUP 32
+#endif
+layout(local_size_x=GROUP) in;
+layout(push_constant) uniform Shape {uint n;uint d;uint batch;uint first;uint rows;} s;
+layout(set=0,binding=4,std430) readonly buffer Values {float v[];};
+layout(set=0,binding=5,std430) readonly buffer Scores {float scores[];};
+layout(set=0,binding=6,std430) buffer Outputs {float output_values[];};
+void main(){
+    uint col=gl_GlobalInvocationID.x,b=gl_WorkGroupID.z;
+    if(col>=s.d)return;
+    float total=0;
+    for(uint j=0;j<=s.first;j++)total+=scores[(b*s.n+s.first)*s.n+j]*v[(b*s.n+j)*s.d+col];
+    output_values[(b*s.n+s.first)*s.d+col]=total;
+}

@@ -1,0 +1,124 @@
+CREDITS AND PROVENANCE
+Algorithm Efficiency Experiment — 6 October 2026
+
+OWNER AND EXPERIMENT DIRECTION
+
+Tyler Sevde owns and directed this project: the initial question, hardware and
+workspace, authorized scope and constraints, stage-launch participation, and
+publication choices. The publication targets are the existing TylerSevde/HomeCode
+private repository and TylerSevde/HomeCode-Public public repository. Their
+verified delivery state belongs in the publication manifest/status and receipts.
+
+AI TOOL ATTRIBUTIONS SUPPLIED BY THE OWNER
+
+Original ZIP creation:
+  "ChatGPT Astra Max" on iPadOS.
+
+Planning, implementation, experiment execution assistance, auditing, reporting
+and fulfillment of the subsequent project:
+  "ChatGPT Codex Astra Ultra".
+
+These are the owner's requested attribution labels. They identify how the owner
+describes the tools used; they are not an independent verification of an internal
+model identifier, model architecture, service routing or historical product tier.
+The original iPadOS creation context must not be confused with its saved timing
+environment: the original results identify x86_64 Linux, Python 3.12.14 and
+NumPy 2.3.5. Later Pi results record their own machine/runtime identities.
+
+AI-assisted work produced code, protocols, review tools, operational safeguards,
+reports and these publication documents under the owner's direction. Acceptance
+of a result depended on recorded checks and frozen decision rules, not on the
+assistant's confidence. Independent audit implementations and separate review
+passes are described as such; they are not external journal peer review or an
+endorsement by an AI provider.
+
+ORIGINAL ARCHIVE
+
+Private preserved file: reference/algorithm_efficiency_experiment.zip
+Public preserved file: original/algorithm_efficiency_experiment.zip
+SHA-256:
+  18bebaa5904a2c685198e5ba5688025d3156c284243abc3c414458a8a3f88cec
+
+Original files preserved alongside it in the private record:
+  reference/algorithm_efficiency_demo.py
+  reference/algorithm_efficiency_results.json
+  reference/algorithm_efficiency_readme.txt
+
+The public edition keeps all three unchanged members under original/ and also
+retains reference/algorithm_efficiency_demo.py for its source loader.
+
+The private reference/provenance.json records the original source and archive
+hash; the public publication manifest identifies the released provenance. The
+example implements established causal-attention/key-value-cache techniques with
+synthetic inputs and fixed weights. This project claims no invention of attention
+or KV caching. References inside the original supplied README are preserved as
+part of that source record; their presence is not evidence that this project
+reproduced every external research claim mentioned there.
+
+HARDWARE, SOFTWARE AND MODEL CONTRIBUTORS
+
+The work depends on the Raspberry Pi platform and community, Linux and Debian,
+Python, NumPy and its numerical-library ecosystem, Jinja2, psutil, Matplotlib,
+GNU compiler/OpenMP components, Vulkan, Mesa/V3D, shaderc/glslc and SPIR-V tooling.
+The advanced NPU experiments use Hailo hardware, HailoRT 5.1.1, its Python
+bindings and GenAI model packaging. Each component retains its own authorship,
+copyright and license. Listing a component does not imply its maintainers
+designed, reviewed or endorsed this experiment.
+
+The deployed language-model packages derive from Qwen2.5-1.5B-Instruct and Meta's
+Llama 3.2 3B Instruct. Model weights, compiled HEFs, tokenizers/templates and
+vendor runtime materials remain subject to their respective upstream terms.
+They are not relicensed by this project's code or documentation licenses.
+The public source/evidence edition does not distribute the model weights.
+
+Recorded compatible model SHA-256 values:
+  Qwen:  5310176848638505fbc28add04ba60c97abe345cdb0ec7e3b8ffaa4b0a8c65dd
+  Llama: 1129f5f8384e4e45c5890104dc4ec1aee77e800ce1484ddc3aa942399aada425
+
+The private campaigns/stream-model-20261003/model-provenance.json preserves the
+Llama package verification and upstream manifest/license references; public
+readers should use the release's evidence index and third-party notices.
+A download with different bytes was quarantined, not silently used as the
+recorded model.
+
+The HAT sensor helper was copied from the owner's existing hardware-validation
+tools. The private reference/provenance.json records its original location and
+SHA-256:
+  7ddf8b3544528733a0334e1e7add1f49d067fcdca027857f633bd38aab1bf972
+This acknowledges the reused helper without claiming authorship beyond the
+available provenance. See THIRD-PARTY-NOTICES.txt for the release's component
+and licensing distinctions.
+
+EVIDENCE AND CREDIT FOR RESULTS
+
+The archive's original CPU measurements, the later Pi numerical experiments,
+and the NPU language tasks are distinct measurements. Improvement against an
+old GPU kernel is credited to that comparison; it is not presented as beating
+the CPU. A CPU fallback answer is credited to the fallback, not to the model.
+An answer that merely completed is not credited as strictly correct.
+
+The final roadmap's correct conclusion is that no new policy passed every
+promotion rule. The favorable CPU batch endpoint and improved GPU kernel remain
+reported findings. The NPU revision missed its fixed accuracy gate. Stages that
+never opened remain explicitly unmeasured. Implementation and checkpoint test
+counts are credited separately from hardware evidence and actual restoration.
+
+LICENSES AND REUSE CREDIT
+
+Project code is offered under the scoped MIT terms in LICENSE-CODE.txt.
+Project documentation and project-produced data are offered under the scoped
+CC BY 4.0 terms in LICENSE-DOCS-DATA.txt. LICENSING.txt and
+THIRD-PARTY-NOTICES.txt define the boundaries and exclusions. These statements
+do not grant rights to third-party material that the project does not control.
+
+For attribution of reused project documentation/data, identify Tyler Sevde,
+"Algorithm Efficiency Experiment," the applicable publication/repository and
+revision, and the CC BY 4.0 license; indicate your changes and retain the supplied
+attribution and notices, including AI-assistance credit. Preserve the evidence
+identifier when quoting a measurement. AI-tool attribution above documents the
+project's process and does not replace the license's required owner credit.
+
+The public evidence is curated. PUBLICATION-MANIFEST.json records its scope and
+provenance; omitted raw artifacts limit which audits a recipient can repeat.
+A complete private backup and a public source/evidence release serve different
+purposes, and neither should be described as containing bytes it does not carry.

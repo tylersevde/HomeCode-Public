@@ -1,0 +1,499 @@
+When Faster Is Not Qualified: Audited CPU, GPU and NPU Experiments on a Raspberry Pi 5.
+
+Tyler Sevde — project owner and operator
+Research and report drafting: ChatGPT Codex, identified by the project owner as
+“ChatGPT Codex Astra Ultra.”
+AI-assisted technical report; not externally peer reviewed.
+Report date: 6 October 2026. Measurements discussed: 1–6 October 2026.
+
+ABSTRACT
+
+This project investigated whether measured software improvements on a Raspberry
+Pi 5 could justify useful, correct changes to CPU, GPU and neural-accelerator
+workflows. It began with a supplied synthetic attention demonstration and grew
+into bounded experiments with frozen protocols, numerical oracles, fresh
+fixtures, duplicate controls, cumulative time limits and independent offline
+reconstruction. Earlier confirmation established a 2.85782-fold improvement of
+one GPU implementation over another, while retaining a large disadvantage to
+CPU execution. The final CPU comparison measured speedups of 1.21223 for single
+requests and 1.19045 for sixteen-call batches, but unstable single-request
+baseline duplicates prevented policy qualification. A twelve-shape GPU study
+found no CPU crossover. A revised full-table language-model policy completed
+96 of 96 planned answers validly but answered only 64 strictly correctly,
+failing its original quality gate. Dependent cache and combined-system stages
+therefore remained unrun. The completion allocation consumed 17,399.547867786954
+of 72,000 seconds, including an inherited failed startup. No new preset was
+exported and no application default changed. The contribution is a traceable
+experimental record that distinguishes observed speed, reliable measurement,
+task correctness and qualification. It does not demonstrate general language-
+model acceleration, energy savings or recursive self-improvement.
+
+1. ORIGIN, ATTRIBUTION AND QUESTIONS
+
+The original archive, reference/algorithm_efficiency_experiment.zip, contains
+three files: a Python demonstration, recorded results and an explanatory
+readme. Tyler Sevde supplied it and attributes its creation to “ChatGPT Astra
+Max” used through an iPadOS interface. That attribution describes the owner's
+reported interaction. The results inside the archive identify an x86_64 Linux
+execution environment, Python 3.12.14 and NumPy 2.3.5; they do not establish
+that the benchmark computation ran on the iPad. The ZIP and its extracted files
+are preserved byte-for-byte, with identities listed in Section 11.
+
+The owner attributes subsequent experimental planning, implementation,
+execution and fulfillment to ChatGPT Codex, using the label “ChatGPT Codex
+Astra Ultra.” Those service/model labels are owner-supplied attribution, not
+internal model identities established by experiment manifests. The user supplied
+the hardware, access and authorization; the software agents prepared and ran
+the authorized procedures. AI-assisted drafting and automated audit are not
+external peer review or independent laboratory replication.
+
+The starting demonstration compares established ways to evaluate a single
+causal attention layer with fixed random inputs and weights. Attention relates
+queries to keys and combines values, as developed in the Transformer literature
+[R1]. Caching retains earlier keys and values so they need not be recomputed
+for each new position; it exchanges persistent storage for less repeated work
+[R2]. Neither operation is a newly discovered algorithm here.
+
+The archive's recorded cached-versus-uncached median speedups were 2.459, 3.390
+and 6.382 at sequence lengths 128, 256 and 512. These are supplied demonstration
+results from the recorded x86_64 environment, not the final Pi policy results.
+The demonstration used float64, one requested numerical-library thread, seven
+timed repetitions, and a primary uncached baseline that computes the newest
+query while recomputing earlier keys and values. Its full-prefix reference is
+a separate, less efficient implementation. Baseline choice matters when
+interpreting the size of a gain.
+
+The later roadmap asked five practical questions: could a CPU operating policy
+qualify against defaults; could stream64 GPU execution become useful against
+CPU over a bounded matrix; could the installed NPU model meet the full-table
+quality requirement; would qualified context reuse help; and would a qualified
+combined route help? The last two questions were conditional. Completion meant
+an honest disposition for each question, including “not run,” rather than
+requiring a positive finding from every device. [E0, E1]
+
+2. MEASURED SYSTEM AND SOFTWARE
+
+The machine was recorded as Raspberry Pi 5 Model B Rev 1.1, with four CPU cores
+available to workers. The execution plan records 8 GB host RAM. Final manifests
+record Linux 6.18.50+rpt-rpi-2712 on aarch64, glibc 2.41, Python 3.13.5, NumPy
+2.2.4, Jinja2 3.1.6 and psutil 7.0.0. The CPU runtime receipt pins libgomp and
+libc hashes and the native library identities. Matplotlib was available through
+a separate plotting environment; plotting was not part of measured requests.
+
+The numerical backend used C++17 and OpenMP, compiled by GCC 14.2.0 with -O3,
+-mcpu=cortex-a76 and -ffp-contract=off. The GPU path used Vulkan compute shaders
+and recorded hardware identity “V3D 7.1.10.2; vendor=5348; driver=109060098.”
+Frozen build receipts retain compiler flags, shader compiler versions, source
+digests, SPIR-V and binary hashes. These measured identities are more precise
+reproduction requirements than simply requesting “a Raspberry Pi.” [E2, E3]
+
+The attached accelerator was an AI HAT+ 2. Manufacturer documentation identifies
+that board's accelerator as Hailo-10H and describes its separate onboard memory
+[R3]; advertised operation rates are not measurements made by this project.
+The final NPU studies used HailoRT 5.1.1 and the installed
+Llama-3_2-3B-Instruct.hef, 3,370,416,230 bytes. Earlier work used Qwen2.5-1.5B;
+those results must remain distinct. Meta's model card supplies background for
+the Llama family [R4], but the HEF hash identifies the actual deployed artifact.
+This report does not assume that the original model card's context capacity
+or benchmark results describe the compiled Hailo package.
+
+The HailoRT API exposes tokenization, context accounting, clear/save/load
+operations and configurable stop tokens [R5]. Their existence does not prove
+that a particular cache policy is useful or correct. Final qualification
+rebuilt the context every turn; retained-context and checkpoint alternatives
+were conditional future measurements, not completed final-stage results.
+
+3. DESIGN AND STATISTICAL INTERPRETATION
+
+Source, protocol, model, workload and applicable native identities were frozen
+before measurement. Development and confirmation used separate fixture
+namespaces. Pilots were charged to their stage but excluded from primary
+statistics. Pilot feasibility retained a 20% margin and 120 seconds for cleanup.
+An infeasible full matrix was to stop rather than shrink after observing data.
+Failed startup attempts remained separate evidence with their time charged.
+
+For native attention, every output was compared with an FP64 oracle evaluated
+on the same FP32 inputs. The acceptance bound was absolute tolerance 1e-5 plus
+relative tolerance 1e-4 times the reference magnitude. This differs from the
+original float64 demonstration's 1e-10 tolerances. Semantic GPU controls and
+validation checks supplemented numerical comparison. A fast incorrect output
+could not qualify.
+
+The performance gate required at least 1.10-fold aggregate speedup, a paired
+95% bootstrap lower bound above one, no tested shape more than 5% slower, and
+stable duplicate controls. Stability required the whole duplicate-ratio 95%
+interval to lie within 0.95–1.05, both overall and per shape. Merely overlapping
+one was insufficient. This protects against declaring a policy useful while
+nominally identical controls disagree beyond the permitted uncertainty.
+
+The bootstrap is a resampling approach to estimating statistical uncertainty
+[R6]. Here, the resampling unit was the whole paired fixture block, preserving
+the association between implementations on the same input. Repetitions and
+duplicates were averaged within shape before equal shape weighting. Ten
+thousand resamples were used, with frozen seeds. Treating sixteen calls within
+one batch, or four turns within one dialogue, as independent experiments would
+inflate the apparent sample size. They were not treated that way.
+
+A ratio above one means the numerator implementation took longer: for a
+baseline/candidate ratio, 1.20 represents a candidate taking approximately
+83.3% of baseline time. It is not a 20% reduction in elapsed time. Bootstrap
+intervals describe uncertainty under this sampling design. They do not remove
+systematic measurement bias or establish performance on another machine.
+
+Native timing ran from submission through receipt of a validated result,
+including transport and applicable transfers and synchronization; initialization
+was reported separately. Frozen route summaries assembled times from measured
+shape-specific calls. They did not separately time a production dispatcher.
+Workers also recorded process ownership, affinity, environment and telemetry.
+Temporary governor settings were restored. Temperature, memory, throttling and
+deadline checks protected execution, but do not turn this into a power study.
+
+4. CPU: A GAIN THAT DID NOT QUALIFY
+
+Earlier CPU confirmation established that policy 5 was repeatable on its tested
+workload. It did not compare that policy with application defaults. The final
+experiment supplied that missing comparison: ondemand governor with default
+OpenMP environment versus performance governor, bound threads and passive
+waiting. Native code and per-shape thread routing were identical between arms.
+All present OMP_/GOMP_ overrides were cleared before applying each declared
+configuration; numerical-library thread environment values remained fixed.
+
+The matrix comprised N=128, 512 and 1024; D=64; and tensor B=1 or 4. It used
+256 fresh paired main blocks, three repetitions and duplicate single-request
+and sixteen-call batch arms. Configuration order alternated; arm order covered
+all 24 permutations over eight blocks. The audit counted 36,864 main measurement
+events plus 144 excluded pilot events. A batch comprised sixteen sequential
+native calls, not a new device-side batching algorithm. [E2]
+
+Table 1. Final CPU results; batch milliseconds cover all sixteen calls.
+
+Endpoint     Baseline ms  Candidate ms  Speedup   Paired 95% interval   Stable?
+Single          24.4197       20.1444    1.212229  [1.187793,1.237565]   No
+16-call batch  367.9677      309.0988    1.190453  [1.183802,1.197340]   Yes
+
+Numerical correctness passed. Maximum candidate/baseline per-shape slowdown
+was 1.012470 for singles and 1.005945 for batches, within the 1.05 guard.
+However, baseline single-request duplicate intervals were approximately
+[0.991768,1.174850] at N512/B4 and [0.897799,0.993308] at N1024/B4. Neither
+interval was contained within the required equivalence range.
+
+The batch endpoint passed its gates, while the single endpoint did not. Because
+the frozen decision required both, the policy was rejected for qualification.
+This is evidence of an aggregate measured gain with insufficient control
+stability for the promised combined claim, not proof that the candidate is
+universally slower. Selecting a batch-only preset after seeing the failure
+would change the research question after measurement. No such selection or
+preset export occurred, and application defaults remained unchanged.
+
+Two related startup failures are also retained: the inherited 5 October attempt
+and a new 6 October authentication timeout. They produced no pilot or matrix
+measurements. Their dispositions are infrastructure failures, not adverse
+performance observations. Their elapsed allowances still count. [E1]
+
+5. GPU: IMPLEMENTATION IMPROVEMENT WITHOUT CPU CROSSOVER
+
+On 4 October, an earlier 64-block confirmation found stream64 2.857821 times
+faster than its old GPU baseline, with paired 95% interval
+[2.850774,2.863870]. That confirmation passed its scoped correctness and
+stability requirements. Mean stream64 request time nevertheless remained
+22.227635 times CPU time over the six tested shapes. It established a GPU
+implementation improvement, not a reason to replace CPU execution. [E5]
+
+The final development study broadened the workload to twelve shapes:
+N=128/512/1024, D=64/128 and tensor B=1/16. Its four arms were CPU, duplicate
+CPU, old GPU and stream64. It used eight main blocks, three repetitions and
+one excluded pilot block, yielding 1,152 main and 144 pilot measurements.
+The fixed CPU reference used native1 for B1 and native4 for B16; it was not a
+search for globally optimal CPU thread counts. Tensor B represents independent
+sequences within one native call, not repeated submission of individual jobs.
+
+Development was to select GPU only for shapes achieving at least 1.10-fold
+CPU-relative speedup with lower confidence bound above one, then require the
+aggregate routed policy to pass all gates. Confirmation would use fresh
+fixtures with routing frozen. The matrix and budget forecast were set before
+measurement; larger extrapolated workloads were excluded in the protocol
+because the complete comparison was not expected to fit the stage. [E3]
+
+Table 2. Different GPU claims have different denominators and evidence stages.
+
+Study                   Old-GPU / stream64 speedup   Paired 95% interval
+Earlier confirmation               2.857821           [2.850774,2.863870]
+Final development                  3.447532           [3.440004,3.454484]
+
+Final CPU/stream64 speedup across twelve shapes ranged from 0.047272 to
+0.119012: stream64 took roughly 8.4–21.2 times CPU time. No shape crossed the
+CPU threshold. Numerical checks passed, but per-shape CPU duplicate equivalence
+also failed. Thus no route qualified and no fresh confirmation was opened.
+The 3.447532 development result must not be presented as another independently
+confirmed result or combined statistically with the older matrix.
+
+All proposed shape routes remained CPU, producing a composed route ratio of
+exactly 1.0. That number reuses the measured CPU baseline for CPU-selected
+shapes. It is not a timed dynamic-dispatch result with zero overhead. The study
+supports a bounded negative crossover finding, alongside a control-stability
+limitation; it does not show that every GPU workload on this machine is useless.
+
+6. NPU: DIAGNOSIS DID NOT REPLACE THE ORIGINAL TASK
+
+The NPU task required four-turn color lookup from a complete table, retaining
+actual prior user prompts and raw assistant answers. Correctness used the
+unchanged strict whole-answer rubric. Mentioning the expected color among
+extra answers or prose did not silently become success. A completed response
+and a correct response were distinct outcomes.
+
+A fresh diagnostic crossed complete-table versus CPU-selected single-fact
+input with actual-history versus independent questions. Every arm had 96
+planned answers: eight main fixture blocks, three size groups and four turns.
+Selected-fact input removes much of the retrieval burden; independent questions
+remove accumulated conversation. Neither intervention satisfies the original
+full-table, actual-history qualification task. All diagnostic arms used the
+frozen punctuation-stop condition. [E4]
+
+Table 3. Diagnostic results; every arm retains denominator 96.
+
+Input / history                Observed  Valid  Strict correct  Quarantined
+Full table / actual history          83     70        44              13
+Full table / independent             96     94        80               0
+Selected fact / actual history       94     89        55               2
+Selected fact / independent          96     96        94               0
+
+The pattern motivated one separately frozen revision instructing exact item
+lookup, excluding previous assistant answers as factual authority, and requiring
+consistent formatting on repeated questions. It did not justify treating the
+94/96 simpler-arm score as full-table qualification. The candidate was tested
+on new development fixtures, against an unchanged native-stop full-table
+control. Greedy generation used do_sample=false, seed 12345 and a maximum of
+32 generated tokens; the exact parameter values are retained in protocol.json.
+
+Table 4. Revised full-table development; planned denominator remains 96.
+
+Arm          Observed  Valid  Strict correct  Correct by size     Quarantined
+Native stop      46      24       3           0/32, 3/32, 0/32         50
+Candidate        96      96      64          22/32,19/32,23/32          0
+
+Development required 96/96 valid, at least 92/96 strictly correct, at least
+29/32 at every size and zero contract failures. The candidate passed validity
+and contracts but failed both overall and per-size correctness. The paired
+development accuracy gain over its matched native control was 0.635417, with
+95% interval [0.489583,0.781250]. A positive improvement from a weak control
+does not satisfy an absolute quality requirement. No confirmation ran. [E6]
+
+The current matched control scored 3/96, not the diagnostic 44/96. Those scores
+come from different fresh datasets and different frozen stop conditions; the
+diagnostic used punctuation stopping, while the qualification control preserved
+native stops. Substituting the earlier score would destroy the matched
+comparison. The revised candidate retained its declared punctuation-stop policy.
+This is a policy comparison, not an isolated estimate of prompt wording alone.
+
+Truncated or invalid answers remained failures. When an invalid history could
+not safely continue, later turns were quarantined, not silently removed.
+For the native qualification control, 46 observed answers plus 50 quarantined
+turns still total 96 planned answers. No CPU-corrected answer counted as raw
+model success. The audit reconstructed these denominators from saved rows.
+
+Table sizing also needs care. The nominal groups describe the largest original-
+control first prompt at or below a target, not equal actual token counts for
+every arm. Both qualification arms received identical complete tables. The
+longer candidate instruction increased prompt size without changing the facts.
+
+Table 5. Main-request token ranges; unobserved turns have no invented counts.
+
+Control-sized group     128          512          1024
+Complete-table facts     14           91           193
+Native first prompt     126          511          1021
+Candidate first prompt  222          607          1117
+Native observed range   126–197      511–586      1021–1056
+Candidate range         222–282      607–659      1117–1168
+
+Had development passed, fresh confirmation would have required 192/192 valid,
+at least 183/192 strictly correct, at least 58/64 per size, zero contracts,
+and a minimum five-percentage-point gain over the native control with paired
+95% lower gain bound above zero. None of those confirmation outcomes was
+measured. The failed development gate closed policy-aware cache and combined
+testing. Earlier cache or combined observations cannot reopen those gates.
+
+7. TIME ALLOCATION AND CLOSED DEPENDENCIES
+
+The completion plan provided 20 hardware hours: four for the CPU comparison
+and four each for GPU, NPU, cache and combined research. Each new track split
+its allowance into two hours of development and two of confirmation. NPU
+diagnosis and qualification-development shared one development bucket. The
+inherited CPU startup consumed 132.87611606300925 seconds before the final
+series; it was charged once, not added as a new allowance.
+
+Table 6. Exact final stage accounting in seconds. Zero means unrun, not fast.
+
+Bucket             Cap       Charged                Unspent
+CPU comparison     14400      9583.107278851996       4816.892721148004
+GPU development     7200      3644.4632362799894      3555.5367637200106
+GPU confirmation    7200         0                   7200
+NPU development     7200      4171.977352654969       3028.022647345031
+NPU confirmation    7200         0                   7200
+Cache development   7200         0                   7200
+Cache confirmation  7200         0                   7200
+Combined develop.   7200         0                   7200
+Combined confirm.   7200         0                   7200
+Total              72000     17399.547867786954      54600.452132213046
+
+The five current attempts consumed 17,266.671751723945 seconds; adding the
+inherited charge gives approximately 4 hours 50 minutes of the 20-hour ceiling.
+Charges include authentication, initialization, fixtures, pilots, cooldowns
+and cleanup. This is not total project effort: earlier research campaigns,
+software preparation, offline auditing, report writing, AI-service computation
+and archiving are outside this completion ledger.
+
+All reservations were finalized. Six stage buckets were never opened, and
+their unused time was not transferred. Cache and combined performance remain
+unmeasured because prerequisites failed; they were not observed performance
+failures. Remaining allowance does not turn a scientifically closed candidate
+into an automatically authorized retry. [E1]
+
+8. REPRODUCIBILITY, AUDIT AND PRESERVATION
+
+Each completed stage preserves protocol, source snapshot, fixtures, schedule,
+raw events, outputs where applicable, telemetry, summaries, plots, validation
+and a checksum inventory. Auditors independently reconstruct scheduled coverage,
+numerical checks or answer scores, statistical decisions, budget lineage and
+restoration. The frozen implementation passed 589 regression tests; separate
+checkpoint tooling passed 47 disposable checks. Those tests support software
+behavior, not scientific claims about hardware speed or model accuracy.
+
+The word “independent” refers to reconstruction from raw evidence rather than
+trusting a saved summary. The auditors were part of this AI-assisted project,
+not outside peer reviewers. Hashes detect changes relative to a trusted pin;
+an attacker could otherwise replace files and generate new hashes. Pinned
+historical inventories and deliberately altered/resealed-evidence tests provide
+stronger checks, but no offline program proves that a past physical execution
+occurred exactly as reported.
+
+Saved NPU token IDs and counts were checked for consistency without replaying
+the hardware tokenizer. Recorded affinity, process and clock observations were
+checked without rerunning the machine. Another investigator should distinguish
+this evidence reconstruction from a fresh replication, which requires compatible
+hardware, the pinned model/runtime, new output directories and a new approved
+budget. A model name alone does not identify identical compiled bytes.
+
+The 6 October checkpoint underwent an actual independent USB-to-SSD restoration
+test, verified at 17:22:02.816935 UTC and certified at 17:25:42.471260 UTC. Its
+receipt records 19,924 inventory entries and 74 canonical seals. The receipt
+is external to the immutable closure, avoiding a circular requirement to seal
+proof of an archive before that archive can be restored. That checkpoint
+predates this publication document; its success does not certify a later
+publication package or a future HDD/GitHub copy. [E7]
+
+9. LIMITATIONS AND INTERPRETATION
+
+These are measurements on one system, within bounded shapes and tasks. Native
+attention uses synthetic weights and inputs, not an entire deployed LLM.
+The NPU experiment measures a particular compiled model and strict lookup task.
+A disappointing score does not establish general model incapability, just as
+a speedup over an inefficient implementation does not establish superiority
+to a stronger baseline. Direct CPU lookup already solves the color task; this
+study does not establish an application need for language-model inference.
+
+Eight development blocks provide less sampling coverage than the larger CPU
+and earlier GPU confirmations. Unstable duplicate controls constrain performance
+conclusions. Equal shape weighting is a declared experimental choice, not a
+measurement of a user's real workload distribution. Shape-specific routing is
+composed from complete calls; dynamic-dispatch latency remains unmeasured.
+No trained model was partitioned across CPU, GPU and NPU.
+
+Energy and accelerator cache bytes were not measured. Host memory, temperature,
+clock and throttling records are not substitutes for energy measurements.
+Likewise, a one-time component improvement cannot establish repeated exponential
+gains. There was no demonstrated autonomous recursive improvement process,
+singularity, universal fivefold-per-iteration law or change in model intelligence.
+
+The useful outcome is disciplined separation of claims. A faster component can
+remain the wrong route; a repeatable configuration can lack a qualified gain
+against defaults; a valid answer can be wrong; and a complete investigation can
+end with conditional stages unrun. Here those distinctions preserved the
+original gates, left defaults unchanged and produced evidence that another
+reader can inspect without accepting the narrative on trust.
+
+10. OFFLINE REPRODUCTION
+
+Run from the complete preserved project root. These commands audit saved
+evidence and launch no new hardware experiment:
+
+python3 -B -c "from pathlib import Path; from efficiency.cpu_compare_audit import audit; result=audit(Path('runs/completion-cpu-20261006T120615Z-compare'), require_seal=True); print(result); raise SystemExit(0 if result.get('passed') else 1)"
+python3 -B -c "from pathlib import Path; from efficiency.completion_gpu_audit import audit; result=audit(Path('runs/completion-gpu-develop-20261006T145314Z-develop'), require_seal=True); print(result); raise SystemExit(0 if result.get('passed') else 1)"
+python3 -B -c "from pathlib import Path; from efficiency.completion_npu_audit import audit; result=audit(Path('runs/completion-npu-diagnostic-20261006T112430Z-diagnostic'), require_seal=True); print(result); raise SystemExit(0 if result.get('passed') else 1)"
+python3 -B -c "from pathlib import Path; from efficiency.completion_npu_audit import audit; result=audit(Path('runs/completion-npu-develop-20261006T155952Z-develop'), require_seal=True); print(result); raise SystemExit(0 if result.get('passed') else 1)"
+
+Original absolute paths occur in immutable receipts. A relocated restore needs
+the restore tooling or explicit path mapping, not rewritten evidence. A compact
+public dataset may reproduce statistics while omitting full numerical arrays,
+model binaries or raw logs; such a projection must state its reduced audit
+coverage. Complete reconstruction requires the complete evidence tree.
+
+11. LOCAL EVIDENCE AND IDENTITY PINS
+
+Paths below are relative to this project's root. Run pins are SHA-256 hashes
+of their checksums.json files, not hashes of directories. Those inventories
+identify individual artifacts; closure.json indexes campaign seals, runtime,
+sources and exact findings. No sealed artifact was changed for this paper.
+
+[E0] reference/algorithm_efficiency_experiment.zip
+  ZIP SHA-256: 18bebaa5904a2c685198e5ba5688025d3156c284243abc3c414458a8a3f88cec
+  Companion: reference/provenance.json; reference/algorithm_efficiency_results.json
+
+[E1] campaigns/completion-closure-20261006T163315Z/
+  closure.json; report.html; budgets.csv; attempts.csv; npu-token-ranges.csv
+  Closure seal: 870fe0d4309b6980381af4e42b775d7f5a6f08784c61875426a2ebc79129d9d5
+  budget-snapshot.json file SHA-256:
+  b9258ba00b95ef191a8b8d2a2dda2850c378d034f650968d0deaad0dbd56142d
+
+[E2] runs/completion-cpu-20261006T120615Z-compare/
+  summary.json; protocol.json; cpu-runtime.json; validation.json; cpu-compare.jsonl
+  Run seal: 33efb566974a8f2b4669fef4a1adb360212eb15f7f1bbf693ce5f5a69a9ec3a8
+
+[E3] runs/completion-gpu-develop-20261006T145314Z-develop/
+  summary.json; protocol.json; native-build/build.json; completion-gpu.jsonl
+  Run seal: cd5bd88b73c250d8f3dfa1401d85d031dddcab6b82627b17e0785df1035ec318
+
+[E4] runs/completion-npu-diagnostic-20261006T112430Z-diagnostic/
+  summary.json; protocol.json; fixtures.json; completion-npu.jsonl
+  Run seal: b525276f0cde53a12dd3368c67a92f4bb86526a38141f4353d4f5396455263f7
+
+[E5] runs/cpu-gpu-recovery-20261004T130703Z-gpu-confirm-retry1/
+  summary.json; report.html; validation.json
+  Run seal: d09fa9c6aae6244d64a27c97806d94432b9fd909d89743a25682bd64f320a6ba
+  CPU repeatability: runs/cpu-gpu-recovery-20261004T130703Z-cpu-confirm-retry1/
+  CPU run seal: 24cac8f0c29edbf208edf83a7791f09923a44011ed2886e4954b1353b2232a17
+
+[E6] runs/completion-npu-develop-20261006T155952Z-develop/
+  summary.json; protocol.json; npu-policy.json; manifest.json; completion-npu.jsonl
+  Run seal: 22c21b68b7d38ab08b8551b56e16aadf144522d91394d3342aab097d7a23345b
+  Deployed HEF SHA-256:
+  1129f5f8384e4e45c5890104dc4ec1aee77e800ce1484ddc3aa942399aada425
+
+[E7] CHECKPOINT-20261006T164951Z.txt links the external backup receipt.
+  Receipt SHA-256: f6038c0e0c1a50fe6eb84e3c0cc69927bd1f7f5e4660a70805fe37df439f760a
+  This is a historical checkpoint, not a claim about later publication copies.
+
+12. PRIMARY REFERENCES
+
+External sources provide methodological and platform context, not validation
+of this project's results. Links were checked on 6 October 2026. No performance
+claim in this paper is inferred from a manufacturer's advertised capability.
+
+[R1] Vaswani, A., et al. (2017). Attention Is All You Need.
+[Original paper](https://arxiv.org/abs/1706.03762).
+
+[R2] Hugging Face. Transformers documentation: How caching works.
+[Official cache documentation](https://huggingface.co/docs/transformers/cache_explanation).
+
+[R3] Raspberry Pi. AI HATs documentation.
+[Official AI HAT documentation](https://www.raspberrypi.com/documentation/accessories/ai-hat-plus.html).
+
+[R4] Meta. Llama-3.2-3B-Instruct model card.
+[Developer's model card](https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct).
+
+[R5] Hailo Technologies. HailoRT v5.1.1 LLM API, llm.hpp.
+[Versioned API source](https://github.com/hailo-ai/hailort/blob/v5.1.1/hailort/libhailort/include/hailo/genai/llm/llm.hpp).
+
+[R6] Efron, B. (1979). Bootstrap Methods: Another Look at the Jackknife.
+The Annals of Statistics, 7(1), 1–26. DOI: 10.1214/aos/1176344552.
+[Publisher record](https://projecteuclid.org/journals/annals-of-statistics/volume-7/issue-1/Bootstrap-Methods-Another-Look-at-the-Jackknife/10.1214/aos/1176344552.full).
+[Original-paper scan inspected](https://blogs.helsinki.fi/bk-club/files/2012/05/Efron_Bootstrap_AS1979.pdf).

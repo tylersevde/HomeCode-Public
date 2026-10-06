@@ -1,0 +1,70 @@
+{
+  "frozen_utc": "2026-10-02T16:05:37.279004+00:00",
+  "grammar": {
+    "version": "strict-english-v1",
+    "forms": {
+      "LOOKUP": [
+        "what color is {item}",
+        "look up {item}",
+        "tell me the color assigned to {item}",
+        "i would like to know {item}'s color",
+        "give me the color recorded for {item}",
+        "what is the color value for {item}",
+        "report {item}'s color",
+        "find the color belonging to {item}",
+        "return the stored color of {item}",
+        "for {item}, which color is on record"
+      ],
+      "COUNT": [
+        "how many items are {color}",
+        "count {color} items",
+        "give me the number of items colored {color}",
+        "what is the total number of {color} items",
+        "i need a count of the items whose color is {color}",
+        "tell me how many entries have color {color}",
+        "find the quantity of {color} items",
+        "what is the size of the set of {color} items",
+        "return the number of records with color {color}",
+        "how large is the group of items that are {color}"
+      ],
+      "LIST": [
+        "which items are {color}",
+        "list {color} items",
+        "give me the identifiers of items colored {color}",
+        "show the item ids whose color is {color}",
+        "i need the names of all {color} items",
+        "find every item that has color {color}",
+        "return the identifiers for the {color} group",
+        "tell me which records have color {color}",
+        "enumerate the items marked {color}",
+        "what are the item ids associated with {color}"
+      ]
+    },
+    "colors": [
+      "blue",
+      "green",
+      "red",
+      "yellow",
+      "white",
+      "black",
+      "pink",
+      "brown"
+    ],
+    "plural_nouns": [
+      "items",
+      "entries",
+      "records"
+    ],
+    "optional_prefix": "please ",
+    "normalization": "casefold; collapse whitespace; strip trailing .?! and whitespace",
+    "identifier": "item[0-9]+; preserve digits",
+    "match": "entire normalized question; unique command",
+    "examples": [
+      "What color is item001?",
+      "How many items are blue?",
+      "List blue items."
+    ]
+  },
+  "source_sha256": "b0f818f10daebee5d6a214a10d03fb6ae373bd7b75e08709e1a524cead16b87e",
+  "purpose": "Grammar frozen before new corpus authoring; based on previous 30 supported forms."
+}

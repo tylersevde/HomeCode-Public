@@ -1,0 +1,7 @@
+Llama 3.2 is licensed under the Llama 3.2 Community License,
+Copyright (c) Meta Platforms, Inc. All Rights Reserved.
+
+Built with Llama: the recorded NPU experiments used a compiled Llama 3.2 3B
+Instruct model on Hailo hardware. This public source/data edition does not
+contain model weights or HEFs. The full owner-controlled backup retains the
+verified compiled model with its recorded provenance and applicable terms.
